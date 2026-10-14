@@ -1,0 +1,61 @@
+---
+import site from '../data/site.json';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description = site.description } = Astro.props;
+const pageTitle = title ? `${title} · ${site.title}` : site.title;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <header>
+      <a href={`${base}/`}>{site.title}</a>
+    </header>
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --bg: #fdfdfc;
+    --fg: #1c1c1a;
+    --muted: #6b6b66;
+    --accent: #2f5bd3;
+    color-scheme: light dark;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #161615;
+      --fg: #ececea;
+      --muted: #9a9a94;
+      --accent: #8aa8ff;
+    }
+  }
+  body {
+    margin: 0 auto;
+    max-width: 42rem;
+    padding: 2rem 1rem 4rem;
+    background: var(--bg);
+    color: var(--fg);
+    font: 1.0625rem/1.65 system-ui, sans-serif;
+  }
+  a { color: var(--accent); }
+  header { margin-bottom: 3rem; }
+  header a { color: inherit; font-weight: 600; text-decoration: none; }
+  img { max-width: 100%; height: auto; }
+</style>
