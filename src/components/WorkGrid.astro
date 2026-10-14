@@ -15,6 +15,7 @@ const items = grid.items as Item[];
 const sizeOf = (item: Item) => (item.kind === 'doodle' ? '2x1' : (item.size ?? '1x1'));
 ---
 
+<div class="grid-wrap">
 <div class="grid">
   {items.map((item) => {
     const size = sizeOf(item);
@@ -30,19 +31,23 @@ const sizeOf = (item: Item) => (item.kind === 'doodle' ? '2x1' : (item.size ?? '
       : <div class={`tile work s-${size}`}>{media}</div>;
   })}
 </div>
+</div>
 
 <style>
+  /* The wrapper is the size container; the grid measures it to make square rows. */
+  .grid-wrap {
+    container-type: inline-size;
+    margin: 0 0 4rem;
+  }
   .grid {
     --cols: 4;
     --gap: 16px;
-    container-type: inline-size;
     display: grid;
     grid-template-columns: repeat(var(--cols), 1fr);
     /* Rows match column width so a 1x1 tile is square. */
     grid-auto-rows: calc((100cqw - (var(--cols) - 1) * var(--gap)) / var(--cols));
     grid-auto-flow: dense;
     gap: var(--gap);
-    margin: 0 0 4rem;
   }
   @media (max-width: 640px) {
     .grid { --cols: 2; --gap: 12px; }
