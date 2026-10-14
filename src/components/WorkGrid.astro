@@ -1,0 +1,82 @@
+---
+import grid from '../data/grid.json';
+
+type Item = {
+  kind: 'work' | 'doodle';
+  size?: '1x1' | '2x1' | '2x2';
+  title?: string;
+  image?: string;
+  alt?: string;
+  link?: string;
+};
+
+const items = grid.items as Item[];
+// Doodles are always 2 wide, 1 tall.
+const sizeOf = (item: Item) => (item.kind === 'doodle' ? '2x1' : (item.size ?? '1x1'));
+---
+
+<div class="grid">
+  {items.map((item) => {
+    const size = sizeOf(item);
+    const media = item.image
+      ? <img src={item.image} alt={item.alt ?? ''} loading="lazy" />
+      : <span class="placeholder">{item.title}</span>;
+
+    if (item.kind === 'doodle') {
+      return <div class={`tile doodle s-${size}`}>{media}</div>;
+    }
+    return item.link
+      ? <a class={`tile work s-${size}`} href={item.link} aria-label={item.image ? item.title : undefined}>{media}</a>
+      : <div class={`tile work s-${size}`}>{media}</div>;
+  })}
+</div>
+
+<style>
+  .grid {
+    --cols: 4;
+    --gap: 16px;
+    container-type: inline-size;
+    display: grid;
+    grid-template-columns: repeat(var(--cols), 1fr);
+    /* Rows match column width so a 1x1 tile is square. */
+    grid-auto-rows: calc((100cqw - (var(--cols) - 1) * var(--gap)) / var(--cols));
+    grid-auto-flow: dense;
+    gap: var(--gap);
+    margin: 0 0 4rem;
+  }
+  @media (max-width: 640px) {
+    .grid { --cols: 2; --gap: 12px; }
+  }
+
+  .tile {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    background: color-mix(in srgb, var(--fg) 6%, transparent);
+    color: inherit;
+    text-decoration: none;
+  }
+  .s-2x1 { grid-column: span 2; }
+  .s-2x2 { grid-column: span 2; grid-row: span 2; }
+
+  .tile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .placeholder {
+    position: absolute;
+    inset: auto 0 0 0;
+    padding: 12px 14px;
+    font-size: 14px;
+    color: var(--muted);
+  }
+
+  a.work img { transition: transform 0.3s ease; }
+  a.work:hover img { transform: scale(1.03); }
+  a.work:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  .doodle { background: transparent; border: 1px dashed color-mix(in srgb, var(--fg) 15%, transparent); }
+  .doodle img { object-fit: contain; }
+</style>

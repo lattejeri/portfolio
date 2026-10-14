@@ -32,3 +32,33 @@ content:
       - { name: description, label: Description, type: string }
       - { name: intro, label: Homepage title, type: text }
       - { name: byline, label: Homepage byline, type: text, description: "Links: [text](https://url)" }
+
+  - name: grid
+    label: Homepage grid
+    type: file
+    path: src/data/grid.json
+    format: json
+    fields:
+      - name: items
+        label: Tiles
+        type: object
+        list: true
+        fields:
+          - name: kind
+            label: Kind
+            type: select
+            required: true
+            default: work
+            options:
+              values: [work, doodle]
+          - name: size
+            label: Size (columns x rows)
+            type: select
+            description: Doodles are always 2x1.
+            default: 1x1
+            options:
+              values: [1x1, 2x1, 2x2]
+          - { name: title, label: Title, type: string }
+          - { name: image, label: Image, type: image }
+          - { name: alt, label: Image description (alt text), type: string }
+          - { name: link, label: Link (work only), type: string }
