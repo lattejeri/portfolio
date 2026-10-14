@@ -30,4 +30,4 @@ content:
     fields:
       - { name: title, label: Site title, type: string, required: true }
       - { name: description, label: Description, type: string }
-      - { name: intro, label: Homepage intro, type: text }
+      - { name: intro, label: Homepage title, type: text }
