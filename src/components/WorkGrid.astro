@@ -19,16 +19,22 @@ const sizeOf = (item: Item) => (item.kind === 'doodle' ? '2x1' : (item.size ?? '
 <div class="grid">
   {items.map((item) => {
     const size = sizeOf(item);
-    const media = item.image
-      ? <img src={item.image} alt={item.alt ?? ''} loading="lazy" />
+    // Inside a link the title names the tile, so the image is decorative there.
+    const media = (alt: string) => item.image
+      ? <img src={item.image} alt={alt} loading="lazy" />
       : <span class="placeholder">{item.title}</span>;
 
     if (item.kind === 'doodle') {
-      return <div class={`tile doodle s-${size}`}>{media}</div>;
+      return <div class={`tile doodle s-${size}`}>{media(item.alt ?? '')}</div>;
     }
     return item.link
-      ? <a class={`tile work s-${size}`} href={item.link} aria-label={item.image ? item.title : undefined}>{media}</a>
-      : <div class={`tile work s-${size}`}>{media}</div>;
+      ? (
+        <a class={`tile work s-${size}`} href={item.link}>
+          {media('')}
+          <span class="label">{item.title}</span>
+        </a>
+      )
+      : <div class={`tile work s-${size}`}>{media(item.alt ?? '')}</div>;
   })}
 </div>
 </div>
@@ -78,9 +84,43 @@ const sizeOf = (item: Item) => (item.kind === 'doodle' ? '2x1' : (item.size ?? '
     color: var(--muted);
   }
 
-  a.work img { transition: transform 0.3s ease; }
-  a.work:hover img { transform: scale(1.03); }
+  /* Linked work tiles lift slightly and reveal a polaroid-style title bar. */
+  a.work {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  a.work:hover,
+  a.work:focus-visible {
+    transform: translateY(-4px);
+    box-shadow:
+      0 2px 4px rgb(0 0 0 / 0.06),
+      0 12px 24px -6px rgb(0 0 0 / 0.16);
+  }
   a.work:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  .label {
+    position: absolute;
+    inset: auto 10px 10px 10px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    background: #fff;
+    color: #1c1c1a;
+    font: var(--type-h5);
+    box-shadow: 0 1px 3px rgb(0 0 0 / 0.12);
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.2s ease, transform 0.25s ease;
+  }
+  a.work:hover .label,
+  a.work:focus-visible .label {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    a.work, .label { transition: opacity 0.2s ease; }
+    a.work:hover, a.work:focus-visible { transform: none; }
+    .label { transform: none; }
+  }
 
   .doodle { background: transparent; border: 1px dashed color-mix(in srgb, var(--fg) 15%, transparent); }
   .doodle img { object-fit: contain; }
