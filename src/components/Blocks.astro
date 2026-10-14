@@ -1,0 +1,65 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  blocks: CollectionEntry<'work'>['data']['blocks'];
+}
+
+const { blocks } = Astro.props;
+---
+
+{blocks.map((block) => {
+  switch (block.type) {
+    case 'text':
+      return (
+        <div class="wrap block">
+          <div class="measure prose" set:html={block.body} />
+        </div>
+      );
+    case 'image':
+      return (
+        <figure class="bleed block">
+          <img src={block.src} alt={block.alt} loading="lazy" />
+        </figure>
+      );
+    case 'columns2':
+    case 'columns3':
+      return (
+        <div class={`bleed block cols ${block.type}`}>
+          {block.images.map((img) => <img src={img.src} alt={img.alt} loading="lazy" />)}
+        </div>
+      );
+  }
+})}
+
+<style>
+  .block { margin-block: 0 64px; }
+
+  .prose :global(> :first-child) { margin-top: 0; }
+  .prose :global(> :last-child) { margin-bottom: 0; }
+
+  /* Breakout blocks span the viewport with a 32px margin each side. */
+  .bleed {
+    box-sizing: border-box;
+    margin-inline: 0;
+    padding-inline: 32px;
+  }
+  .bleed img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .cols {
+    display: grid;
+    gap: 32px;
+    align-items: start;
+  }
+  .columns2 { grid-template-columns: repeat(2, 1fr); }
+  .columns3 { grid-template-columns: repeat(3, 1fr); }
+
+  @media (max-width: 640px) {
+    .bleed { padding-inline: 16px; }
+    .cols { grid-template-columns: 1fr; gap: 16px; }
+  }
+</style>

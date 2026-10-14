@@ -1,0 +1,28 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Blocks from '../../components/Blocks.astro';
+import { inlineLinks } from '../../lib/inline';
+
+export async function getStaticPaths() {
+  const work = await getCollection('work', ({ data }) => !data.draft);
+  return work.map((entry) => ({ params: { id: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const { title, byline, blocks } = entry.data;
+---
+
+<Base title={title} description={byline}>
+  <div class="wrap hero">
+    <div class="measure">
+      <h1 class="display">{title}</h1>
+      {byline && <p class="lede" set:html={inlineLinks(byline)} />}
+    </div>
+  </div>
+  <Blocks blocks={blocks} />
+</Base>
+
+<style>
+  .hero { margin-bottom: 64px; }
+</style>

@@ -12,7 +12,7 @@ const { Content } = await render(post);
 ---
 
 <Base title={post.data.title} description={post.data.description}>
-  <article>
+  <article class="wrap">
     <h1>{post.data.title}</h1>
     <time datetime={post.data.date.toISOString()}>
       {post.data.date.toLocaleDateString('en-GB', { dateStyle: 'long' })}

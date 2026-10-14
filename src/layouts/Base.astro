@@ -30,7 +30,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     <Font cssVariable="--font-redaction-100" />
   </head>
   <body>
-    <header>
+    <header class="wrap">
       <a href={`${base}/`}>{site.title}</a>
     </header>
     <main>
@@ -56,9 +56,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     }
   }
   body {
-    margin: 0 auto;
-    max-width: 960px;
-    padding: 2rem 1rem 4rem;
+    margin: 0;
+    padding: 2rem 0 4rem;
     background: var(--bg);
     color: var(--fg);
     font: 1.0625rem/1.65 var(--font-inter-tight);
@@ -72,4 +71,42 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     text-decoration: none;
   }
   img { max-width: 100%; height: auto; }
+
+  /* 960px content wrapper; breakout blocks (e.g. full-width images) sit outside it. */
+  .wrap {
+    box-sizing: border-box;
+    max-width: calc(960px + 2rem);
+    margin-inline: auto;
+    padding-inline: 1rem;
+  }
+
+  /* 800px text column, left-aligned inside .wrap. */
+  .measure { max-width: 800px; }
+
+  /* Big Redaction title + Inter Tight byline, shared by home and work pages. */
+  .display {
+    font-family: var(--font-redaction);
+    font-size: 72px;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin: 0 0 1.5rem;
+  }
+  .lede {
+    font-family: var(--font-inter-tight);
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 40px;
+    margin: 0;
+  }
+  .lede a {
+    display: inline-block;
+    padding: 0 0.35em;
+    border-radius: 0.3em;
+    background: color-mix(in srgb, var(--accent) 12%, transparent);
+    color: var(--fg);
+    text-decoration: none;
+  }
+  .lede a:hover {
+    background: color-mix(in srgb, var(--accent) 22%, transparent);
+  }
 </style>

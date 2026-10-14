@@ -13,4 +13,27 @@ const posts = defineCollection({
   }),
 });
 
-export const collections = { posts };
+const image = z.object({
+  src: z.string(),
+  alt: z.string().default(''),
+});
+
+// Page blocks, keyed by `type` (Pages CMS `blockKey`).
+const block = z.discriminatedUnion('type', [
+  z.object({ type: z.literal('text'), body: z.string().default('') }),
+  image.extend({ type: z.literal('image') }),
+  z.object({ type: z.literal('columns2'), images: z.array(image).default([]) }),
+  z.object({ type: z.literal('columns3'), images: z.array(image).default([]) }),
+]);
+
+const work = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/work' }),
+  schema: z.object({
+    title: z.string(),
+    byline: z.string().optional(),
+    draft: z.boolean().default(false),
+    blocks: z.array(block).default([]),
+  }),
+});
+
+export const collections = { posts, work };

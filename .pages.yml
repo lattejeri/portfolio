@@ -22,6 +22,57 @@ content:
       - { name: tags, label: Tags, type: string, list: true }
       - { name: body, label: Body, type: rich-text }
 
+  - name: work
+    label: Work
+    type: collection
+    path: src/content/work
+    filename: "{primary}.md"
+    view:
+      fields: [title, draft]
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: byline, label: Byline, type: text, description: "Links: [text](https://url)" }
+      - { name: draft, label: Draft, type: boolean, default: false }
+      - name: blocks
+        label: Blocks
+        type: block
+        list: true
+        blockKey: type
+        blocks:
+          - name: text
+            label: Text (800 wide)
+            fields:
+              - name: body
+                label: Text
+                type: rich-text
+                options:
+                  format: html
+          - name: image
+            label: Full-width image
+            fields:
+              - { name: src, label: Image, type: image, required: true }
+              - { name: alt, label: Image description (alt text), type: string }
+          - name: columns2
+            label: 2-column images
+            fields:
+              - name: images
+                label: Images
+                type: object
+                list: true
+                fields:
+                  - { name: src, label: Image, type: image, required: true }
+                  - { name: alt, label: Image description (alt text), type: string }
+          - name: columns3
+            label: 3-column images
+            fields:
+              - name: images
+                label: Images
+                type: object
+                list: true
+                fields:
+                  - { name: src, label: Image, type: image, required: true }
+                  - { name: alt, label: Image description (alt text), type: string }
+
   - name: site
     label: Site settings
     type: file
