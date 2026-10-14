@@ -31,3 +31,4 @@ content:
       - { name: title, label: Site title, type: string, required: true }
       - { name: description, label: Description, type: string }
       - { name: intro, label: Homepage title, type: text }
+      - { name: byline, label: Homepage byline, type: text, description: "Links: [text](https://url)" }
