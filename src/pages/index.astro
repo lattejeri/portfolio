@@ -12,8 +12,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 <Base>
   <div class="wrap">
-    <h1 class="display">{site.intro}</h1>
-    <p class="lede byline" set:html={inlineLinks(site.byline)} />
+    <h1 class="title">{site.intro}</h1>
+    <p class="p1 byline" set:html={inlineLinks(site.byline)} />
     <WorkGrid />
     <ul class="posts">
       {posts.map((post) => (
@@ -29,6 +29,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 </Base>
 
 <style>
+  .title { margin-bottom: 24px; }
   .byline { margin-bottom: 3rem; }
   .posts { list-style: none; padding: 0; }
   .posts li { display: flex; gap: 1rem; padding: 0.35rem 0; }

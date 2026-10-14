@@ -14,7 +14,7 @@ const { Content } = await render(post);
 <Base title={post.data.title} description={post.data.description}>
   <article class="wrap">
     <h1>{post.data.title}</h1>
-    <time datetime={post.data.date.toISOString()}>
+    <time class="caption" datetime={post.data.date.toISOString()}>
       {post.data.date.toLocaleDateString('en-GB', { dateStyle: 'long' })}
     </time>
     <Content />
@@ -22,6 +22,6 @@ const { Content } = await render(post);
 </Base>
 
 <style>
-  h1 { margin-bottom: 0.25rem; line-height: 1.2; }
-  time { color: var(--muted); }
+  h1 { margin-bottom: 0.25rem; }
+
 </style>

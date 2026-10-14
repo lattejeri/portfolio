@@ -1,0 +1,38 @@
+---
+import Base from '../layouts/Base.astro';
+
+// Type ramp specimen. Values mirror the --type-* tokens in Base.astro.
+const ramp = [
+  { cls: 'h1', tag: 'h1', spec: 'Redaction · 400 · 72/76', mobile: '44/48', sample: 'Good design is cheap insurance' },
+  { cls: 'h2', tag: 'h2', spec: 'Redaction · 400 · 48/56', mobile: '34/40', sample: 'Systems, students and software' },
+  { cls: 'h3', tag: 'h3', spec: 'Redaction · 400 · 32/40', mobile: '26/32', sample: 'Building a research engine from zero' },
+  { cls: 'h4', tag: 'h4', spec: 'Inter Tight · 600 · 22/32', sample: 'Coaching emerging UX talent' },
+  { cls: 'h5', tag: 'h5', spec: 'Inter Tight · 600 · 18/28', sample: 'Steering digital products' },
+  { cls: 'p1', tag: 'p', spec: 'Inter Tight · 500 · 24/40', mobile: '20/32', sample: 'I work at the intersection of systems, students, and software, steering digital products and coaching emerging UX talent.' },
+  { cls: 'p2', tag: 'p', spec: 'Inter Tight · 400 · 18/28', sample: 'Along the way, I built our internal research engine from zero and proved that good design is just cheap insurance on expensive capital investments. Body copy sits at a comfortable measure for long reading.' },
+  { cls: 'caption', tag: 'p', spec: 'Inter Tight · 400 · 14/20 · muted', sample: 'Figure 1. Research sessions run across three campuses, 2025.' },
+];
+---
+
+<Base title="Type ramp">
+  <div class="wrap">
+    {ramp.map(({ cls, tag: Tag, spec, mobile, sample }) => (
+      <section class="row">
+        <p class="caption meta">
+          <strong>.{cls}</strong> {spec}{mobile && ` · mobile ${mobile}`}
+        </p>
+        <Tag class={`${cls} specimen measure`}>{sample}</Tag>
+      </section>
+    ))}
+  </div>
+</Base>
+
+<style>
+  .row {
+    padding: 32px 0;
+    border-top: 1px solid color-mix(in srgb, var(--fg) 12%, transparent);
+  }
+  .meta { margin-bottom: 12px; }
+  .meta strong { color: var(--fg); font-weight: 600; margin-right: 0.5em; }
+  .specimen { margin: 0; }
+</style>

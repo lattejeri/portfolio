@@ -46,6 +46,24 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     --muted: #6b6b66;
     --accent: #2f5bd3;
     color-scheme: light dark;
+
+    /* Type ramp — weight size/line-height family */
+    --type-h1: 400 72px/76px var(--font-redaction);
+    --type-h2: 400 48px/56px var(--font-redaction);
+    --type-h3: 400 32px/40px var(--font-redaction);
+    --type-h4: 600 22px/32px var(--font-inter-tight);
+    --type-h5: 600 18px/28px var(--font-inter-tight);
+    --type-p1: 500 24px/40px var(--font-inter-tight);
+    --type-p2: 400 18px/28px var(--font-inter-tight);
+    --type-caption: 400 14px/20px var(--font-inter-tight);
+  }
+  @media (max-width: 640px) {
+    :root {
+      --type-h1: 400 44px/48px var(--font-redaction);
+      --type-h2: 400 34px/40px var(--font-redaction);
+      --type-h3: 400 26px/32px var(--font-redaction);
+      --type-p1: 500 20px/32px var(--font-inter-tight);
+    }
   }
   @media (prefers-color-scheme: dark) {
     :root {
@@ -60,9 +78,22 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     padding: 2rem 0 4rem;
     background: var(--bg);
     color: var(--fg);
-    font: 1.0625rem/1.65 var(--font-inter-tight);
+    font: var(--type-p2);
   }
-  h1, h2, h3, h4 { font-family: var(--font-redaction); font-weight: 400; }
+
+  /* Headings get their ramp style by default; classes apply a style to any element. */
+  h1, .h1 { font: var(--type-h1); letter-spacing: -0.01em; }
+  h2, .h2 { font: var(--type-h2); letter-spacing: -0.005em; }
+  h3, .h3 { font: var(--type-h3); }
+  h4, .h4 { font: var(--type-h4); }
+  h5, .h5 { font: var(--type-h5); }
+  .p1 { font: var(--type-p1); }
+  .p2 { font: var(--type-p2); }
+  .caption { font: var(--type-caption); color: var(--muted); }
+
+  h1, h2, h3, h4, h5 { margin: 0 0 0.5em; }
+  p { margin: 0 0 1em; }
+  * + :is(h2, h3, h4, h5) { margin-top: 1.5em; }
   a { color: var(--accent); }
   header { margin-bottom: 3rem; }
   header a {
@@ -83,22 +114,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   /* 800px text column, left-aligned inside .wrap. */
   .measure { max-width: 800px; }
 
-  /* Big Redaction title + Inter Tight byline, shared by home and work pages. */
-  .display {
-    font-family: var(--font-redaction);
-    font-size: 72px;
-    line-height: 1.05;
-    letter-spacing: -0.01em;
-    margin: 0 0 1.5rem;
-  }
-  .lede {
-    font-family: var(--font-inter-tight);
-    font-size: 24px;
-    font-weight: 500;
-    line-height: 40px;
-    margin: 0;
-  }
-  .lede a {
+  .p1 a {
     display: inline-block;
     padding: 0 0.35em;
     border-radius: 0.3em;
@@ -106,7 +122,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     color: var(--fg);
     text-decoration: none;
   }
-  .lede a:hover {
+  .p1 a:hover {
     background: color-mix(in srgb, var(--accent) 22%, transparent);
   }
 </style>

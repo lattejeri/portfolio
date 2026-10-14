@@ -16,8 +16,8 @@ const { title, byline, blocks } = entry.data;
 <Base title={title} description={byline}>
   <div class="wrap hero">
     <div class="measure">
-      <h1 class="display">{title}</h1>
-      {byline && <p class="lede" set:html={inlineLinks(byline)} />}
+      <h1 class="title">{title}</h1>
+      {byline && <p class="p1" set:html={inlineLinks(byline)} />}
     </div>
   </div>
   <Blocks blocks={blocks} />
@@ -25,4 +25,5 @@ const { title, byline, blocks } = entry.data;
 
 <style>
   .hero { margin-bottom: 64px; }
+  .title { margin-bottom: 24px; }
 </style>
