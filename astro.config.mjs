@@ -28,7 +28,7 @@ const redaction = redactionLevels.map((level) => {
 // Using a custom domain or a <user>.github.io repo? Set base to '/'.
 export default defineConfig({
   site: 'https://lattejeri.github.io',
-  base: '/site',
+  base: '/portfolio',
   fonts: [
     {
       provider: fontProviders.google(),

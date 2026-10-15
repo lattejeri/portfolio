@@ -1,7 +1,7 @@
 # Pages CMS configuration — https://pagescms.org/docs/configuration/
 media:
   input: public/media
-  output: /site/media # must match `base` in astro.config.mjs
+  output: /portfolio/media # must match `base` in astro.config.mjs
 
 content:
   - name: posts
