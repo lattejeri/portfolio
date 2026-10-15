@@ -19,4 +19,8 @@ blocks:
       we’re making researchers jump through</h4><p></p>
   - type: image
     src: /portfolio/media/eresearch-user-flow.svg
+    alt: Mapped current state of data management compliance steps which researchers
+      had to navigate.
+  - type: text
+    body: <p></p>
 ---
