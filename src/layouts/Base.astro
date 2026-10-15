@@ -45,6 +45,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     --fg: #1c1c1a;
     --muted: #6b6b66;
     --accent: #2f5bd3;
+    /* Very subtle terrazzo: #FAF9F5 chips on #FDFDFC. */
+    --texture: url('../assets/textures/terrazzo.svg');
     color-scheme: light dark;
 
     /* Type ramp — weight size/line-height family */
@@ -71,12 +73,13 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       --fg: #ececea;
       --muted: #9a9a94;
       --accent: #8aa8ff;
+      --texture: none;
     }
   }
   body {
     margin: 0;
     padding: 2rem 0 4rem;
-    background: var(--bg);
+    background: var(--bg) var(--texture) repeat;
     color: var(--fg);
     font: var(--type-p2);
   }
