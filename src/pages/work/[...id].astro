@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import Blocks from '../../components/Blocks.astro';
-import { inlineLinks } from '../../lib/inline';
+import { highlights, inlineLinks } from '../../lib/inline';
 
 export async function getStaticPaths() {
   const work = await getCollection('work', ({ data }) => !data.draft);
@@ -13,10 +13,10 @@ const { entry } = Astro.props;
 const { title, byline, blocks } = entry.data;
 ---
 
-<Base title={title} description={byline}>
+<Base title={title.replaceAll('==', '')} description={byline}>
   <div class="wrap hero">
     <div class="measure">
-      <h1 class="title">{title}</h1>
+      <h1 class="title" set:html={highlights(title)} />
       {byline && <p class="p1" set:html={inlineLinks(byline)} />}
     </div>
   </div>
