@@ -1,6 +1,5 @@
 ---
 title: eResearch Data Management Planner
-byline: Using a mandatory compliance step to help research students begin their thesis
 draft: false
 blocks:
   - type: text
