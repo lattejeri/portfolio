@@ -1,13 +1,8 @@
 ---
-import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import WorkGrid from '../components/WorkGrid.astro';
 import site from '../data/site.json';
 import { inlineLinks } from '../lib/inline';
-
-const posts = (await getCollection('posts', ({ data }) => !data.draft))
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
-const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <Base>
@@ -21,16 +16,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     </div>
   </section>
   <div class="wrap">
-    <ul class="posts">
-      {posts.map((post) => (
-        <li>
-          <time datetime={post.data.date.toISOString()}>
-            {post.data.date.toLocaleDateString('en-GB', { dateStyle: 'medium' })}
-          </time>
-          <a href={`${base}/posts/${post.id}/`}>{post.data.title}</a>
-        </li>
-      ))}
-    </ul>
+    <p class="sign-off">Jeremy Chapple – Experience Designer</p>
   </div>
 </Base>
 
@@ -43,7 +29,5 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     padding-block: 64px;
     margin-bottom: 4rem;
   }
-  .posts { list-style: none; padding: 0; }
-  .posts li { display: flex; gap: 1rem; padding: 0.35rem 0; }
-  time { color: var(--muted); min-width: 7rem; font-variant-numeric: tabular-nums; }
+  .sign-off { margin: 0; }
 </style>
