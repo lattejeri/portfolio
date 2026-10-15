@@ -134,11 +134,14 @@ const isCurrent = (href: string) => Astro.url.pathname.startsWith(href);
   }
   .site-header nav a {
     font-weight: 500;
-    color: var(--muted);
-    transition: color 0.15s ease;
+    color: var(--fg);
+    text-decoration: underline 1px transparent;
+    text-underline-offset: 6px;
+    transition: text-decoration-color 0.15s ease;
   }
+  /* Links are always ink; an underline marks hover and the current section. */
   .site-header nav a:hover,
-  .site-header nav a[aria-current='page'] { color: var(--fg); }
+  .site-header nav a[aria-current='page'] { text-decoration-color: currentColor; }
 
   .visually-hidden {
     position: absolute;
