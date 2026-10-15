@@ -32,7 +32,7 @@ const sizeOf = (item: Item) => {
     if (item.kind === 'text') {
       const words = <p class="h3">{item.text}</p>;
       return item.link
-        ? <a class={`tile text s-${size}`} href={item.link}>{words}</a>
+        ? <a class={`tile text s-${size}`} href={item.link}>{words}<span class="arrow" aria-hidden="true">→</span></a>
         : <div class={`tile text s-${size}`}>{words}</div>;
     }
     if (item.kind === 'doodle') {
@@ -102,6 +102,20 @@ const sizeOf = (item: Item) => {
     box-sizing: border-box;
   }
   .text p { margin: 0; }
+  .arrow {
+    position: absolute;
+    right: 20px;
+    bottom: 16px;
+    font: var(--type-h3);
+    opacity: 0;
+    transform: translateX(-8px);
+    transition: opacity 0.2s ease, transform 0.25s ease;
+  }
+  a.text:hover .arrow,
+  a.text:focus-visible .arrow {
+    opacity: 1;
+    transform: none;
+  }
 
   /* Linked tiles lift slightly; work tiles also reveal a polaroid-style title bar. */
   a.tile {
@@ -136,9 +150,9 @@ const sizeOf = (item: Item) => {
   }
 
   @media (prefers-reduced-motion: reduce) {
-    a.tile, .label { transition: opacity 0.2s ease; }
+    a.tile, .label, .arrow { transition: opacity 0.2s ease; }
     a.tile:hover, a.tile:focus-visible { transform: none; }
-    .label { transform: none; }
+    .label, .arrow { transform: none; }
   }
 
   .doodle { background: transparent; border: 1px dashed color-mix(in srgb, var(--fg) 15%, transparent); }
