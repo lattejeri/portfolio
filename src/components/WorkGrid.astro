@@ -30,7 +30,7 @@ const sizeOf = (item: Item) => {
       : <span class="placeholder">{item.title}</span>;
 
     if (item.kind === 'text') {
-      const words = <p class="h2">{item.text}</p>;
+      const words = <p class="h3">{item.text}</p>;
       return item.link
         ? <a class={`tile text s-${size}`} href={item.link}>{words}</a>
         : <div class={`tile text s-${size}`}>{words}</div>;
@@ -95,7 +95,7 @@ const sizeOf = (item: Item) => {
     color: var(--muted);
   }
 
-  /* Text cards: Redaction h2, top-left. */
+  /* Text cards: Redaction h3, top-left. */
   .text {
     display: flex;
     padding: 24px;
