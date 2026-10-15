@@ -29,6 +29,7 @@ const isCurrent = (href: string) => Astro.url.pathname.startsWith(href);
     <title>{pageTitle}</title>
     <Font cssVariable="--font-inter-tight" preload />
     <Font cssVariable="--font-redaction" preload />
+    <Font cssVariable="--font-ms-madi" preload />
     <Font cssVariable="--font-redaction-10" />
     <Font cssVariable="--font-redaction-20" />
     <Font cssVariable="--font-redaction-35" />
@@ -38,7 +39,7 @@ const isCurrent = (href: string) => Astro.url.pathname.startsWith(href);
   </head>
   <body>
     <header class="wrap site-header">
-      <a class="logo" href={`${base}/`}>{site.title}</a>
+      <a class="logo" href={`${base}/`} aria-label={`${site.title} — home`}>jeremy</a>
       <nav aria-label="Main">
         <ul>
           {nav.map(({ label, href, external }) => (
@@ -118,7 +119,11 @@ const isCurrent = (href: string) => Astro.url.pathname.startsWith(href);
     color: inherit;
     text-decoration: none;
   }
-  .logo { font-family: var(--font-redaction-50); }
+  .logo {
+    font-family: var(--font-ms-madi);
+    font-size: 40px;
+    line-height: 1;
+  }
   .site-header ul {
     display: flex;
     gap: 24px;
