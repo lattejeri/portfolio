@@ -170,30 +170,6 @@ const isCurrent = (href: string) => Astro.url.pathname.startsWith(href);
     padding-inline: 1rem;
   }
 
-  /*
-    Crayon highlight (==word== in titles): waxy crayon that degrades into pixels.
-    Sits low and tilted so it breaks the baseline; 5:1 box keeps the pixels square.
-  */
-  .crayon {
-    position: relative;
-    isolation: isolate;
-    white-space: nowrap;
-  }
-  .crayon::before {
-    content: '';
-    position: absolute;
-    z-index: -1;
-    left: -0.18em;
-    bottom: 0.06em; /* span box ends at the descender line, so this lands just below the baseline */
-    width: calc(100% + 0.5em);
-    aspect-ratio: 5 / 1;
-    background: url('../assets/textures/crayon.svg') no-repeat 0 0 / 100% 100%;
-    opacity: 0.72;
-    transform: rotate(-2.5deg);
-    transform-origin: left center;
-    pointer-events: none;
-  }
-
   /* 800px text column, left-aligned inside .wrap. */
   .measure { max-width: 800px; }
 

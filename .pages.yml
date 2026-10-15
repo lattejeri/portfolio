@@ -30,7 +30,7 @@ content:
     view:
       fields: [title, draft]
     fields:
-      - { name: title, label: Title, type: string, required: true, description: "Wrap a word in ==double equals== for the crayon highlight" }
+      - { name: title, label: Title, type: string, required: true }
       - { name: byline, label: Byline, type: text, description: "Links: [text](https://url)" }
       - { name: draft, label: Draft, type: boolean, default: false }
       - name: blocks
@@ -81,7 +81,7 @@ content:
     fields:
       - { name: title, label: Site title, type: string, required: true }
       - { name: description, label: Description, type: string }
-      - { name: intro, label: Homepage title, type: text, description: "Wrap a word in ==double equals== for the crayon highlight" }
+      - { name: intro, label: Homepage title, type: text }
       - { name: linkedin, label: LinkedIn URL, type: string }
       - { name: byline, label: Homepage byline, type: text, description: "Links: [text](https://url)" }
 
