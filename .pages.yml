@@ -102,15 +102,16 @@ content:
             required: true
             default: work
             options:
-              values: [work, doodle]
+              values: [work, doodle, text]
           - name: size
             label: Size (columns x rows)
             type: select
-            description: Doodles are always 2x1.
+            description: Doodles are always 2x1. Text cards are 1x1 or 2x1.
             default: 1x1
             options:
               values: [1x1, 2x1, 2x2]
           - { name: title, label: Title, type: string }
+          - { name: text, label: Card text (text cards only), type: text }
           - { name: image, label: Image, type: image }
           - { name: alt, label: Image description (alt text), type: string }
-          - { name: link, label: Link (work only), type: string }
+          - { name: link, label: Link (work and text cards), type: string }

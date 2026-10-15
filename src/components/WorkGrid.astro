@@ -2,17 +2,22 @@
 import grid from '../data/grid.json';
 
 type Item = {
-  kind: 'work' | 'doodle';
+  kind: 'work' | 'doodle' | 'text';
   size?: '1x1' | '2x1' | '2x2';
   title?: string;
+  text?: string;
   image?: string;
   alt?: string;
   link?: string;
 };
 
 const items = grid.items as Item[];
-// Doodles are always 2 wide, 1 tall.
-const sizeOf = (item: Item) => (item.kind === 'doodle' ? '2x1' : (item.size ?? '1x1'));
+// Doodles are always 2x1; text cards are 1x1 or 2x1.
+const sizeOf = (item: Item) => {
+  if (item.kind === 'doodle') return '2x1';
+  if (item.kind === 'text') return item.size === '1x1' ? '1x1' : '2x1';
+  return item.size ?? '1x1';
+};
 ---
 
 <div class="grid-wrap">
@@ -24,6 +29,12 @@ const sizeOf = (item: Item) => (item.kind === 'doodle' ? '2x1' : (item.size ?? '
       ? <img src={item.image} alt={alt} loading="lazy" />
       : <span class="placeholder">{item.title}</span>;
 
+    if (item.kind === 'text') {
+      const words = <p class="h2">{item.text}</p>;
+      return item.link
+        ? <a class={`tile text s-${size}`} href={item.link}>{words}</a>
+        : <div class={`tile text s-${size}`}>{words}</div>;
+    }
     if (item.kind === 'doodle') {
       return <div class={`tile doodle s-${size}`}>{media(item.alt ?? '')}</div>;
     }
@@ -84,18 +95,26 @@ const sizeOf = (item: Item) => (item.kind === 'doodle' ? '2x1' : (item.size ?? '
     color: var(--muted);
   }
 
-  /* Linked work tiles lift slightly and reveal a polaroid-style title bar. */
-  a.work {
+  /* Text cards: Redaction h2, top-left. */
+  .text {
+    display: flex;
+    padding: 24px;
+    box-sizing: border-box;
+  }
+  .text p { margin: 0; }
+
+  /* Linked tiles lift slightly; work tiles also reveal a polaroid-style title bar. */
+  a.tile {
     transition: transform 0.25s ease, box-shadow 0.25s ease;
   }
-  a.work:hover,
-  a.work:focus-visible {
+  a.tile:hover,
+  a.tile:focus-visible {
     transform: translateY(-4px);
     box-shadow:
       0 2px 4px rgb(0 0 0 / 0.06),
       0 12px 24px -6px rgb(0 0 0 / 0.16);
   }
-  a.work:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  a.tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
   .label {
     position: absolute;
@@ -117,8 +136,8 @@ const sizeOf = (item: Item) => (item.kind === 'doodle' ? '2x1' : (item.size ?? '
   }
 
   @media (prefers-reduced-motion: reduce) {
-    a.work, .label { transition: opacity 0.2s ease; }
-    a.work:hover, a.work:focus-visible { transform: none; }
+    a.tile, .label { transition: opacity 0.2s ease; }
+    a.tile:hover, a.tile:focus-visible { transform: none; }
     .label { transform: none; }
   }
 
