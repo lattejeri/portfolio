@@ -1,13 +1,57 @@
 {
   "items": [
-    {"kind": "work", "size": "2x2", "title": "Placeholder project one", "image": "", "alt": "", "link": "/portfolio/work/sample-project/", "text": ""},
-    {"kind": "work", "size": "1x1", "title": "Placeholder project two", "image": "", "alt": "", "link": "/portfolio/work/sample-project/", "text": ""},
-    {"kind": "work", "size": "1x1", "title": "Placeholder project three", "image": "", "alt": "", "link": "/portfolio/work/sample-project/", "text": ""},
-    {"kind": "text", "size": "1x1", "title": "", "text": "Placeholder short line", "image": "", "alt": "", "link": "/portfolio/work/sample-project/", "icon": ""},
-    {"kind": "doodle", "size": "2x1", "title": "Doodle", "image": "", "alt": "", "link": "", "text": ""},
-    {"kind": "work", "size": "2x1", "title": "Placeholder project four", "image": "", "alt": "", "link": "/portfolio/work/sample-project/", "text": ""},
-    {"kind": "work", "size": "1x1", "title": "Placeholder project five", "image": "", "alt": "", "link": "/portfolio/work/sample-project/", "text": ""},
-    {"kind": "text", "size": "2x1", "title": "", "text": "Placeholder text card, a longer line that spans two columns", "image": "", "alt": "", "link": "/portfolio/work/sample-project/", "icon": ""},
-    {"kind": "work", "size": "1x1", "title": "Placeholder project six", "image": "", "alt": "", "link": "/portfolio/work/sample-project/", "text": ""}
+    {
+      "kind": "work",
+      "size": "1x1",
+      "title": "eResearch Data Management Planner",
+      "link": "/portfolio/work/sample-project/"
+    },
+    {
+      "kind": "work",
+      "size": "1x1",
+      "title": "Placeholder project two",
+      "link": "/portfolio/work/sample-project/"
+    },
+    {
+      "kind": "work",
+      "size": "1x1",
+      "title": "Placeholder project three",
+      "link": "/portfolio/work/sample-project/"
+    },
+    {
+      "kind": "text",
+      "size": "1x1",
+      "text": "Placeholder short line",
+      "link": "/portfolio/work/sample-project/"
+    },
+    {
+      "kind": "doodle",
+      "size": "2x1",
+      "title": "Doodle"
+    },
+    {
+      "kind": "work",
+      "size": "2x1",
+      "title": "Placeholder project four",
+      "link": "/portfolio/work/sample-project/"
+    },
+    {
+      "kind": "work",
+      "size": "1x1",
+      "title": "Placeholder project five",
+      "link": "/portfolio/work/sample-project/"
+    },
+    {
+      "kind": "text",
+      "size": "2x1",
+      "text": "Placeholder text card, a longer line that spans two columns",
+      "link": "/portfolio/work/sample-project/"
+    },
+    {
+      "kind": "work",
+      "size": "1x1",
+      "title": "Placeholder project six",
+      "link": "/portfolio/work/sample-project/"
+    }
   ]
 }
