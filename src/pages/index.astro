@@ -5,7 +5,7 @@ import site from '../data/site.json';
 import { inlineLinks } from '../lib/inline';
 ---
 
-<Base>
+<Base flushBottom>
   <div class="wrap">
     <h1 class="title">{site.intro}</h1>
     <p class="p1 byline" set:html={inlineLinks(site.byline)} />
@@ -13,11 +13,9 @@ import { inlineLinks } from '../lib/inline';
   <section class="grid-band" aria-label="Work">
     <div class="wrap">
       <WorkGrid />
+      <p class="sign-off">Jeremy Chapple – Experience Designer</p>
     </div>
   </section>
-  <div class="wrap">
-    <p class="sign-off">Jeremy Chapple – Experience Designer</p>
-  </div>
 </Base>
 
 <style>
@@ -27,7 +25,12 @@ import { inlineLinks } from '../lib/inline';
   .grid-band {
     background: var(--fg);
     padding-block: 64px;
-    margin-bottom: 4rem;
   }
-  .sign-off { margin: 0; }
+  /* Sign-off sits in the dark band, below a divider. */
+  .sign-off {
+    margin: 64px 0 0;
+    padding-top: 32px;
+    border-top: 1px solid color-mix(in srgb, var(--bg) 18%, transparent);
+    color: var(--bg);
+  }
 </style>

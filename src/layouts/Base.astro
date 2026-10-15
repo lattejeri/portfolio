@@ -6,9 +6,11 @@ import '../styles/palette.css';
 interface Props {
   title?: string;
   description?: string;
+  /** Let the last section run to the bottom of the page (no bottom padding). */
+  flushBottom?: boolean;
 }
 
-const { title, description = site.description } = Astro.props;
+const { title, description = site.description, flushBottom = false } = Astro.props;
 const pageTitle = title ? `${title} · ${site.title}` : site.title;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
@@ -53,7 +55,7 @@ const isCurrent = (href: string) => Astro.url.pathname.startsWith(href);
         </ul>
       </nav>
     </header>
-    <main>
+    <main class:list={{ flush: flushBottom }}>
       <slot />
     </main>
   </body>
@@ -91,7 +93,7 @@ const isCurrent = (href: string) => Astro.url.pathname.startsWith(href);
   html { overflow-y: scroll; scrollbar-gutter: stable; }
   body {
     margin: 0;
-    padding: 2rem 0 4rem;
+    padding: 2rem 0 0;
     background: var(--bg) var(--texture) repeat;
     color: var(--fg);
     font: var(--type-p2);
@@ -157,6 +159,8 @@ const isCurrent = (href: string) => Astro.url.pathname.startsWith(href);
     clip-path: inset(50%);
     white-space: nowrap;
   }
+  main { padding-bottom: 4rem; }
+  main.flush { padding-bottom: 0; }
   img { max-width: 100%; height: auto; }
 
   /* 960px content wrapper; breakout blocks (e.g. full-width images) sit outside it. */
