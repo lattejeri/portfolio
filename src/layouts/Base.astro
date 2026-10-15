@@ -88,7 +88,7 @@ const isCurrent = (href: string) => Astro.url.pathname.startsWith(href);
     }
   }
   /* Always reserve scrollbar space so centred content doesn't shift between short and long pages. */
-  html { scrollbar-gutter: stable; }
+  html { overflow-y: scroll; scrollbar-gutter: stable; }
   body {
     margin: 0;
     padding: 2rem 0 4rem;
@@ -123,9 +123,13 @@ const isCurrent = (href: string) => Astro.url.pathname.startsWith(href);
     text-decoration: none;
   }
   .logo {
+    /* Fixed box so the nav doesn't jump when Freehand swaps in for the fallback font. */
+    display: inline-block;
+    width: 100px;
     font-family: var(--font-freehand);
     font-size: 32px;
     line-height: 1;
+    white-space: nowrap;
   }
   .site-header ul {
     display: flex;
