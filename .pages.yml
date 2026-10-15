@@ -112,6 +112,7 @@ content:
               values: [1x1, 2x1, 2x2]
           - { name: title, label: Title, type: string }
           - { name: text, label: Card text (text cards only), type: text }
+          - { name: icon, label: Icon (text cards only, 48×48), type: image }
           - { name: image, label: Image, type: image }
           - { name: alt, label: Image description (alt text), type: string }
           - { name: link, label: Link (work and text cards), type: string }

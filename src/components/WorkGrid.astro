@@ -6,6 +6,7 @@ type Item = {
   size?: '1x1' | '2x1' | '2x2';
   title?: string;
   text?: string;
+  icon?: string;
   image?: string;
   alt?: string;
   link?: string;
@@ -30,7 +31,15 @@ const sizeOf = (item: Item) => {
       : <span class="placeholder">{item.title}</span>;
 
     if (item.kind === 'text') {
-      const words = <p class="h3">{item.text}</p>;
+      // Icon is decorative; the card text says what the topic is.
+      const words = (
+        <>
+          {item.icon
+            ? <img class="icon" src={item.icon} alt="" width="48" height="48" />
+            : <span class="icon icon-empty" aria-hidden="true" />}
+          <p class="h3">{item.text}</p>
+        </>
+      );
       return item.link
         ? <a class={`tile text s-${size}`} href={item.link}>{words}<span class="arrow" aria-hidden="true">→</span></a>
         : <div class={`tile text s-${size}`}>{words}</div>;
@@ -98,10 +107,25 @@ const sizeOf = (item: Item) => {
   /* Text cards: Redaction h3, top-left. */
   .text {
     display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
     padding: 24px;
     box-sizing: border-box;
   }
   .text p { margin: 0; }
+  .tile .icon {
+    flex: none;
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+  }
+  /* Marks the icon space until a doodle is added. */
+  .icon-empty {
+    box-sizing: border-box;
+    border: 1px dashed color-mix(in srgb, var(--fg) 20%, transparent);
+    border-radius: 8px;
+  }
   .arrow {
     position: absolute;
     right: 20px;
