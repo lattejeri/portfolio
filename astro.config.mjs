@@ -41,8 +41,8 @@ export default defineConfig({
     },
     {
       provider: fontProviders.google(),
-      name: 'Ms Madi',
-      cssVariable: '--font-ms-madi',
+      name: 'Qwitcher Grypen',
+      cssVariable: '--font-qwitcher-grypen',
       weights: [400],
       subsets: ['latin'],
       fallbacks: ['cursive'],
