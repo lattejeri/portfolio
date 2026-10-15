@@ -47,7 +47,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     --accent: #2f5bd3;
     /* Very subtle terrazzo: #FAF9F5 chips on #FDFDFC. */
     --texture: url('../assets/textures/terrazzo.svg');
-    color-scheme: light dark;
+    color-scheme: light; /* dark mode disabled for now — see git history for the old palette */
 
     /* Type ramp — weight size/line-height family */
     --type-h1: 400 72px/76px var(--font-redaction);
@@ -65,15 +65,6 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       --type-h2: 400 34px/40px var(--font-redaction);
       --type-h3: 400 26px/32px var(--font-redaction);
       --type-p1: 500 20px/32px var(--font-inter-tight);
-    }
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #161615;
-      --fg: #ececea;
-      --muted: #9a9a94;
-      --accent: #8aa8ff;
-      --texture: none;
     }
   }
   body {
