@@ -41,8 +41,8 @@ export default defineConfig({
     },
     {
       provider: fontProviders.google(),
-      name: 'Qwitcher Grypen',
-      cssVariable: '--font-qwitcher-grypen',
+      name: 'Just Me Again Down Here',
+      cssVariable: '--font-just-me',
       weights: [400],
       subsets: ['latin'],
       fallbacks: ['cursive'],
