@@ -17,4 +17,6 @@ blocks:
       researchers confidence that their project is off to the best possible
       start?</h3><h4>Understand the business process, so we can see the hoops
       we’re making researchers jump through</h4><p></p>
+  - type: image
+    src: /portfolio/media/eresearch-user-flow.svg
 ---
