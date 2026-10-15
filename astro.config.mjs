@@ -41,8 +41,8 @@ export default defineConfig({
     },
     {
       provider: fontProviders.google(),
-      name: 'Just Me Again Down Here',
-      cssVariable: '--font-just-me',
+      name: 'Freehand',
+      cssVariable: '--font-freehand',
       weights: [400],
       subsets: ['latin'],
       fallbacks: ['cursive'],
