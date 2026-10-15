@@ -1,6 +1,7 @@
 ---
 import { Font } from 'astro:assets';
 import site from '../data/site.json';
+import '../styles/palette.css';
 
 interface Props {
   title?: string;
@@ -60,8 +61,8 @@ const isCurrent = (href: string) => Astro.url.pathname.startsWith(href);
 
 <style is:global>
   :root {
-    --bg: #fdfdfc;
-    --fg: #2c2c2a;
+    --bg: var(--viz-neutral-paper-light);
+    --fg: var(--viz-neutral-ink);
     --muted: #6b6b66;
     --accent: #2f5bd3;
     /* Eggshell patches (#F1EFE8) + pixel dust (#888780, #444441) on #FDFDFC. */

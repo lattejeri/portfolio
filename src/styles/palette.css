@@ -1,0 +1,34 @@
+/*
+  Decorative "viz" palette — for doodles, icons, accents and illustration.
+  Not for core UI (text, links, focus); those use --fg / --bg / --muted / --accent.
+  Each family: tint (fills, backgrounds), line (strokes), deep (dark detail).
+*/
+:root {
+  --viz-data-tint: #e1f5ee;
+  --viz-data-line: #1d9e75;
+  --viz-data-deep: #085041;
+
+  --viz-people-tint: #eeedfe;
+  --viz-people-line: #7f77dd;
+  --viz-people-deep: #3c3489;
+
+  --viz-system-tint: #e6f1fb;
+  --viz-system-line: #378add;
+  --viz-system-deep: #0c447c;
+
+  --viz-friction-tint: #faeeda;
+  --viz-friction-line: #ba7517;
+  --viz-friction-deep: #633806;
+
+  --viz-focus-tint: #faece7;
+  --viz-focus-line: #d85a30;
+  --viz-focus-deep: #712b13;
+
+  --viz-structure-tint: #f1efe8;
+  --viz-structure-line: #888780;
+  --viz-structure-deep: #444441;
+
+  --viz-neutral-ink: #2c2c2a;
+  --viz-neutral-paper: #faf9f5;
+  --viz-neutral-paper-light: #fdfdfc;
+}

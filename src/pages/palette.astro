@@ -1,0 +1,50 @@
+---
+import Base from '../layouts/Base.astro';
+
+// Swatches for the decorative palette in src/styles/palette.css.
+const families = {
+  data: ['tint', 'line', 'deep'],
+  people: ['tint', 'line', 'deep'],
+  system: ['tint', 'line', 'deep'],
+  friction: ['tint', 'line', 'deep'],
+  focus: ['tint', 'line', 'deep'],
+  structure: ['tint', 'line', 'deep'],
+  neutral: ['ink', 'paper', 'paper-light'],
+};
+---
+
+<Base title="Palette">
+  <div class="wrap">
+    <h1>Palette</h1>
+    <p class="caption">Decorative colours for doodles, icons and accents. Use as <code>var(--viz-family-shade)</code>.</p>
+    {Object.entries(families).map(([family, shades]) => (
+      <section>
+        <h4>{family}</h4>
+        <div class="row">
+          {shades.map((shade) => (
+            <div class="swatch">
+              <span class="chip" style={`background: var(--viz-${family}-${shade})`} />
+              <span class="caption">{shade}<br /><code>--viz-{family}-{shade}</code></span>
+            </div>
+          ))}
+        </div>
+      </section>
+    ))}
+  </div>
+</Base>
+
+<style>
+  .row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .chip {
+    display: block;
+    height: 72px;
+    border-radius: 10px;
+    box-shadow: inset 0 0 0 1px rgb(0 0 0 / 0.06);
+    margin-bottom: 8px;
+  }
+  code { font-size: 12px; }
+</style>
