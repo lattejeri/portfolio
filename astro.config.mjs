@@ -39,14 +39,6 @@ export default defineConfig({
       subsets: ['latin'],
       fallbacks: ['system-ui', 'sans-serif'],
     },
-    {
-      provider: fontProviders.google(),
-      name: 'Freehand',
-      cssVariable: '--font-freehand',
-      weights: [400],
-      subsets: ['latin'],
-      fallbacks: ['cursive'],
-    },
     ...redaction,
   ],
 });

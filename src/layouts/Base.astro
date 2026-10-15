@@ -32,13 +32,12 @@ const isCurrent = (href: string) => Astro.url.pathname.startsWith(href);
     <title>{pageTitle}</title>
     <Font cssVariable="--font-inter-tight" preload />
     <Font cssVariable="--font-redaction" preload />
-    <Font cssVariable="--font-freehand" preload />
     <Font cssVariable="--font-redaction-10" />
     <Font cssVariable="--font-redaction-20" />
     <Font cssVariable="--font-redaction-35" />
     <Font cssVariable="--font-redaction-50" />
     <Font cssVariable="--font-redaction-70" />
-    <Font cssVariable="--font-redaction-100" />
+    <Font cssVariable="--font-redaction-100" preload />
   </head>
   <body>
     <header class="wrap site-header">
@@ -125,13 +124,13 @@ const isCurrent = (href: string) => Astro.url.pathname.startsWith(href);
     text-decoration: none;
   }
   .logo {
-    /* Fixed box so the nav doesn't jump when Freehand swaps in for the fallback font. */
+    /* Fixed box (fits "Jeremy") so the nav doesn't nudge when the font loads. */
     display: inline-block;
-    width: 100px;
-    font-family: var(--font-freehand);
-    font-size: 32px;
-    line-height: 1;
+    width: 84px;
     white-space: nowrap;
+    font-family: var(--font-redaction-100);
+    font-size: 24px;
+    line-height: 1;
   }
   .site-header ul {
     display: flex;
