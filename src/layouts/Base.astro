@@ -87,6 +87,8 @@ const isCurrent = (href: string) => Astro.url.pathname.startsWith(href);
       --type-p1: 500 20px/32px var(--font-inter-tight);
     }
   }
+  /* Always reserve scrollbar space so centred content doesn't shift between short and long pages. */
+  html { scrollbar-gutter: stable; }
   body {
     margin: 0;
     padding: 2rem 0 4rem;
