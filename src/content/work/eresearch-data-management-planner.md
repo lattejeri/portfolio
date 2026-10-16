@@ -52,6 +52,12 @@ blocks:
     body: <h4>Bundle up opportunities and prototype</h4><p>Fold in all opportunities
       we identified from our own analysis, as well as the stories our
       researchers told us.</p>
+  - type: carousel
+    images:
+      - src: /portfolio/media/eresearchUI-0-home.png
+      - src: /portfolio/media/eresearchUI-1.png
+      - src: /portfolio/media/eresearchUI-2.png
+      - src: /portfolio/media/eresearchUI-3.png
   - type: text
     body: <h4>Test it with real users, then improve it</h4><p></p>
   - type: imageInline
