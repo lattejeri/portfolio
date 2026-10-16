@@ -50,7 +50,7 @@ const sizeOf = (item: Item) => {
         <div class={`tile doodle s-${size}`}>
           {item.image
             ? <img src={item.image} alt={item.alt ?? ''} loading="lazy" />
-            : <p class="h4 font-redaction doodle-text">{item.title}</p>}
+            : <p class="h4 doodle-text">{item.title}</p>}
         </div>
       );
     }
@@ -213,7 +213,7 @@ const sizeOf = (item: Item) => {
     .label, .arrow { transform: none; }
   }
 
-  /* Doodles sit straight on the dark band; wording is centred, h4 size in Redaction, in paper. */
+  /* Doodles sit straight on the dark band; wording is centred, h4 size in Redaction 35, in paper. */
   .doodle {
     display: grid;
     place-items: center;
@@ -224,6 +224,8 @@ const sizeOf = (item: Item) => {
   .doodle img { position: absolute; inset: 0; }
   .doodle-text {
     margin: 0;
+    font-family: var(--font-redaction-35);
+    font-weight: 400;
     text-align: center;
     color: var(--viz-neutral-paper);
   }
