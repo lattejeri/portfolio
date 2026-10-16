@@ -27,7 +27,13 @@ const { images } = Astro.props;
     The track spans the full page width. Its left padding equals the text column's
     left edge (the "spine"), and snapping aligns each slide to that same edge.
   */
+  /* Sits on a dark band like the homepage grid: same colour, same 64px top/bottom padding. */
   .carousel {
+    background: var(--fg);
+    color: var(--bg);
+    padding-block: 64px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     --spine: max(16px, calc((100% - 960px) / 2));
     --gap: 24px;
     --height: clamp(240px, 42vw, 560px);
@@ -79,16 +85,16 @@ const { images } = Astro.props;
   .controls button {
     width: 44px;
     height: 44px;
-    border: 1px solid color-mix(in srgb, var(--fg) 20%, transparent);
+    border: 1px solid color-mix(in srgb, currentColor 30%, transparent);
     border-radius: 50%;
     background: transparent;
-    color: var(--fg);
+    color: inherit;
     font: var(--type-h5);
     cursor: pointer;
     transition: background 0.15s ease, opacity 0.15s ease;
   }
   .controls button:hover:not(:disabled) {
-    background: color-mix(in srgb, var(--fg) 6%, transparent);
+    background: color-mix(in srgb, currentColor 12%, transparent);
   }
   .controls button:focus-visible {
     outline: 2px solid var(--accent);
