@@ -26,35 +26,41 @@ blocks:
       knowledge</h4><p>With a ‘beginners mind’, try to walk through the entire
       process, asking questions along the way.</p><p></p>
   - type: text
-    body: "<h4>Talk with researchers who’re about to submit their research
-      proposal</h4><p><strong>What'd we learn?</strong></p><table
-      style=\"min-width: 50px;\"><colgroup><col style=\"min-width: 25px;\"><col
-      style=\"min-width: 25px;\"></colgroup><tbody><tr><td colspan=\"1\"
-      rowspan=\"1\"><p><strong>What’d we learn?</strong></p></td><td
-      colspan=\"1\" rowspan=\"1\"><p><strong>What we
-      did</strong></p></td></tr><tr><td colspan=\"1\" rowspan=\"1\"><p>Users
-      don’t know where to start</p></td><td colspan=\"1\"
-      rowspan=\"1\"><p>Introduce a pre-plan checklist</p></td></tr><tr><td
-      colspan=\"1\" rowspan=\"1\"><p>Users have an Incomplete knowledge of
-      research project</p></td><td colspan=\"1\" rowspan=\"1\"><p>Encourage
-      researchers to complete their plan iteratively</p></td></tr><tr><td
-      colspan=\"1\" rowspan=\"1\"><p>Guidance content is
-      overwhelming</p></td><td colspan=\"1\" rowspan=\"1\"><p>Contextual
-      help</p></td></tr><tr><td colspan=\"1\" rowspan=\"1\"><p>The same data has
-      to be entered multiple times</p></td><td colspan=\"1\"
-      rowspan=\"1\"><p>Consolidated data entry fields</p></td></tr><tr><td
-      colspan=\"1\" rowspan=\"1\"><p>Free-text answers are high-effort &amp;
-      unstructured</p></td><td colspan=\"1\" rowspan=\"1\"><p>Predefined sets of
-      options</p></td></tr></tbody></table><p></p>"
+    body: <h4>Talk with researchers who’re about to submit their research
+      proposal</h4><p></p>
+  - type: imageInline
+    src: /portfolio/media/eresearch-user-profiles.svg
+  - type: text
+    body: '<table style="min-width: 50px;"><colgroup><col style="min-width:
+      25px;"><col style="min-width: 25px;"></colgroup><tbody><tr><td colspan="1"
+      rowspan="1"><p><strong>What’d we learn?</strong></p></td><td colspan="1"
+      rowspan="1"><p><strong>What we did</strong></p></td></tr><tr><td
+      colspan="1" rowspan="1"><p>Users don’t know where to start</p></td><td
+      colspan="1" rowspan="1"><p>Introduce a pre-plan
+      checklist</p></td></tr><tr><td colspan="1" rowspan="1"><p>Users have an
+      Incomplete knowledge of research project</p></td><td colspan="1"
+      rowspan="1"><p>Encourage researchers to complete their plan
+      iteratively</p></td></tr><tr><td colspan="1" rowspan="1"><p>Guidance
+      content is overwhelming</p></td><td colspan="1" rowspan="1"><p>Contextual
+      help</p></td></tr><tr><td colspan="1" rowspan="1"><p>The same data has to
+      be entered multiple times</p></td><td colspan="1"
+      rowspan="1"><p>Consolidated data entry fields</p></td></tr><tr><td
+      colspan="1" rowspan="1"><p>Free-text answers are high-effort &amp;
+      unstructured</p></td><td colspan="1" rowspan="1"><p>Predefined sets of
+      options</p></td></tr></tbody></table><p></p>'
   - type: text
     body: <h4>Bundle up opportunities and prototype</h4><p>Fold in all opportunities
       we identified from our own analysis, as well as the stories our
       researchers told us.</p>
   - type: text
     body: <h4>Test it with real users, then improve it</h4><p></p>
+  - type: imageInline
+    src: /portfolio/media/eresearch-issues.svg
   - type: text
     body: <h4>Build out all of the states and scenarios the development team will
       need, and map back to design system</h4><p></p>
+  - type: imageInline
+    src: /portfolio/media/eresearch-user-stories.svg
   - type: text
     body: <h3>Results</h3><ul><li><p>80% of researchers use the pre-plan checklist
       to help start their research data journey</p></li><li><p>500 unique plans
