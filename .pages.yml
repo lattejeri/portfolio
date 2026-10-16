@@ -82,6 +82,16 @@ content:
                 fields:
                   - { name: src, label: Image, type: image, required: true }
                   - { name: alt, label: Image description (alt text), type: string }
+          - name: carousel
+            label: Carousel (swipe through images)
+            fields:
+              - name: images
+                label: Images
+                type: object
+                list: true
+                fields:
+                  - { name: src, label: Image, type: image, required: true }
+                  - { name: alt, label: Image description (alt text), type: string }
 
   - name: site
     label: Site settings

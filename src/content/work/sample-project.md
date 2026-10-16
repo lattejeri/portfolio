@@ -19,6 +19,20 @@ blocks:
     src: /portfolio/media/sample/wide-1.jpg
     alt: Placeholder photo
   - type: text
+    body: <h2>Carousel</h2><p>Starts on the text spine and runs off to the right. Swipe, scroll or use the arrows.</p>
+  - type: carousel
+    images:
+      - src: /portfolio/media/sample/wide-1.jpg
+        alt: Placeholder photo
+      - src: /portfolio/media/sample/tall-1.jpg
+        alt: Placeholder photo
+      - src: /portfolio/media/sample/square-1.jpg
+        alt: Placeholder photo
+      - src: /portfolio/media/sample/wide-2.jpg
+        alt: Placeholder photo
+      - src: /portfolio/media/sample/tall-2.jpg
+        alt: Placeholder photo
+  - type: text
     body: <h2>Two columns</h2><p>Image pairs sit side by side with a 32px gap.</p>
   - type: columns2
     images:

@@ -26,6 +26,7 @@ const block = z.discriminatedUnion('type', [
   image.extend({ type: z.literal('imageWide') }),
   z.object({ type: z.literal('columns2'), images: z.array(image).default([]) }),
   z.object({ type: z.literal('columns3'), images: z.array(image).default([]) }),
+  z.object({ type: z.literal('carousel'), images: z.array(image).default([]) }),
 ]);
 
 const work = defineCollection({

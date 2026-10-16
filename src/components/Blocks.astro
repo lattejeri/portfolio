@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import Carousel from './Carousel.astro';
 
 interface Props {
   blocks: CollectionEntry<'work'>['data']['blocks'];
@@ -33,6 +34,12 @@ const { blocks } = Astro.props;
         <figure class="wide block">
           <img src={block.src} alt={block.alt} loading="lazy" />
         </figure>
+      );
+    case 'carousel':
+      return (
+        <div class="block">
+          <Carousel images={block.images} />
+        </div>
       );
     case 'columns2':
     case 'columns3':
