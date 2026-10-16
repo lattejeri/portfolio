@@ -10,28 +10,9 @@
       "link": "/portfolio/work/eresearch-data-management-planner/"
     },
     {
-      "kind": "work",
-      "size": "1x1",
-      "title": "Placeholder project three",
-      "link": "/portfolio/work/sample-project/"
-    },
-    {
-      "kind": "work",
+      "kind": "doodle",
       "size": "2x1",
-      "title": "Placeholder project four",
-      "link": "/portfolio/work/sample-project/"
-    },
-    {
-      "kind": "work",
-      "size": "1x1",
-      "title": "Placeholder project five",
-      "link": "/portfolio/work/sample-project/"
-    },
-    {
-      "kind": "work",
-      "size": "1x1",
-      "title": "Placeholder project six",
-      "link": "/portfolio/work/sample-project/"
+      "text": "Solve the right problem, then solve the problem right"
     }
   ]
 }
