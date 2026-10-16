@@ -48,6 +48,7 @@ const sizeOf = (item: Item) => {
     if (item.kind === 'doodle') {
       return (
         <div class={`tile doodle s-${size}`}>
+          <svg class="squiggle" aria-hidden="true" focusable="false"><path /></svg>
           {item.image
             ? <img src={item.image} alt={item.alt ?? ''} loading="lazy" />
             : <p class="h4 font-redaction doodle-text">{item.title}</p>}
@@ -222,6 +223,33 @@ const sizeOf = (item: Item) => {
     background: transparent;
   }
   .doodle img { position: absolute; inset: 0; }
+  .doodle { overflow: visible; } /* let the squiggle break the frame */
+  .doodle-text { position: relative; } /* text above the squiggle */
+
+  /* Random squiggle, drawn by the script below; may spill up to 20px outside the tile. */
+  .squiggle {
+    position: absolute;
+    inset: -20px;
+    width: calc(100% + 40px);
+    height: calc(100% + 40px);
+    overflow: visible;
+    pointer-events: none;
+  }
+  .squiggle path {
+    fill: none;
+    stroke: var(--squiggle, var(--viz-focus-line));
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    vector-effect: non-scaling-stroke;
+  }
+  .squiggle.drawing path {
+    animation: draw 1.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  @media (prefers-reduced-motion: reduce) {
+    .squiggle.drawing path { animation: none; stroke-dashoffset: 0; }
+  }
   .doodle-text {
     margin: 0;
     text-align: center;
@@ -229,3 +257,66 @@ const sizeOf = (item: Item) => {
   }
   .doodle img { object-fit: contain; }
 </style>
+
+<script>
+  // Draws a random marker squiggle in each doodle tile, in one of the palette's line colours.
+  const colours = ['data', 'people', 'system', 'friction', 'focus'].map((f) => `var(--viz-${f}-line)`);
+  const rand = (min: number, max: number) => min + Math.random() * (max - min);
+  const SPILL = 20; // px the squiggle may extend past the tile
+  const INSET = 12; // keep points this far inside the spill edge (curves bulge slightly past their points)
+
+  // Smooth curve through points (Catmull-Rom converted to cubic Béziers).
+  const smoothPath = (pts: [number, number][]) => {
+    let d = `M${pts[0][0].toFixed(1)},${pts[0][1].toFixed(1)}`;
+    for (let i = 0; i < pts.length - 1; i++) {
+      const [p0, p1, p2, p3] = [pts[i - 1] ?? pts[i], pts[i], pts[i + 1], pts[i + 2] ?? pts[i + 1]];
+      const c1 = [p1[0] + (p2[0] - p0[0]) / 6, p1[1] + (p2[1] - p0[1]) / 6];
+      const c2 = [p2[0] - (p3[0] - p1[0]) / 6, p2[1] - (p3[1] - p1[1]) / 6];
+      d += ` C${c1[0].toFixed(1)},${c1[1].toFixed(1)} ${c2[0].toFixed(1)},${c2[1].toFixed(1)} ${p2[0].toFixed(1)},${p2[1].toFixed(1)}`;
+    }
+    return d;
+  };
+
+  const squiggle = (w: number, h: number) => {
+    // Bounds include the spill margin; the SVG is offset by -SPILL so 0..w+2*SPILL covers it.
+    const W = w + SPILL * 2, H = h + SPILL * 2;
+    const size = Math.min(w, h);
+    const pts: [number, number][] = [];
+    let x = rand(0.2, 0.8) * W, y = rand(0.2, 0.8) * H;
+    let angle = rand(0, Math.PI * 2);
+    const count = Math.round(rand(6, 10));
+    for (let i = 0; i < count; i++) {
+      pts.push([x, y]);
+      angle += rand(-1.6, 1.6); // wander, with the odd sharp turn
+      const step = rand(0.18, 0.4) * size;
+      x += Math.cos(angle) * step;
+      y += Math.sin(angle) * step;
+      // Bounce off the spill-extended edges, inset a little for curve bulge and stroke width.
+      if (x < INSET || x > W - INSET) { angle = Math.PI - angle; x = Math.min(Math.max(x, INSET), W - INSET); }
+      if (y < INSET || y > H - INSET) { angle = -angle; y = Math.min(Math.max(y, INSET), H - INSET); }
+    }
+    return { d: smoothPath(pts), viewBox: `0 0 ${W} ${H}` };
+  };
+
+  const io = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (!e.isIntersecting) continue;
+      e.target.classList.add('drawing');
+      io.unobserve(e.target);
+    }
+  }, { threshold: 0.4 });
+
+  for (const svg of document.querySelectorAll<SVGSVGElement>('.doodle .squiggle')) {
+    const tile = svg.parentElement!;
+    const { d, viewBox } = squiggle(tile.clientWidth, tile.clientHeight);
+    const path = svg.querySelector('path')!;
+    svg.setAttribute('viewBox', viewBox);
+    svg.setAttribute('preserveAspectRatio', 'none');
+    path.setAttribute('d', d);
+    path.style.setProperty('--squiggle', colours[Math.floor(Math.random() * colours.length)]);
+    const len = path.getTotalLength();
+    path.style.strokeDasharray = `${len}`;
+    path.style.strokeDashoffset = `${len}`;
+    io.observe(svg);
+  }
+</script>
