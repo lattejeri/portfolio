@@ -7,6 +7,7 @@ type Item = {
   title?: string;
   text?: string;
   icon?: string;
+  iconColour?: string;
   image?: string;
   alt?: string;
   link?: string;
@@ -45,7 +46,9 @@ const sizeOf = (item: Item) => {
       const words = (
         <>
           {item.image && <img class="card-bg" src={item.image} alt="" aria-hidden="true" loading="lazy" />}
-          {item.icon
+          {item.icon && item.iconColour
+            ? <span class="icon icon-tinted" aria-hidden="true" style={`--icon: url('${item.icon}'); --icon-colour: var(--viz-${item.iconColour})`} />
+            : item.icon
             ? <img class="icon" src={item.icon} alt="" width="48" height="48" />
             : <span class="icon icon-empty" aria-hidden="true" />}
           <p class="h3">{item.text}</p>
@@ -164,6 +167,11 @@ const sizeOf = (item: Item) => {
     width: 48px;
     height: 48px;
     object-fit: contain;
+  }
+  /* Icon recoloured with a palette token: the SVG's shape is used as a mask over a solid colour. */
+  .icon-tinted {
+    background-color: var(--icon-colour);
+    mask: var(--icon) center / contain no-repeat;
   }
   /* Marks the icon space until a doodle is added. */
   .icon-empty {

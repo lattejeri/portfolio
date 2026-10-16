@@ -1,7 +1,15 @@
 # Pages CMS configuration — https://pagescms.org/docs/configuration/
+# Paths must match `base` in astro.config.mjs. The first source is the default for image fields.
 media:
-  input: public/media
-  output: /portfolio/media # must match `base` in astro.config.mjs
+  - name: images
+    label: Images
+    input: public/media
+    output: /portfolio/media
+  - name: icons
+    label: Icons
+    input: public/icons
+    output: /portfolio/icons
+    extensions: [svg]
 
 content:
   - name: posts
@@ -138,7 +146,32 @@ content:
               values: [1x1, 2x1, 2x2]
           - { name: title, label: Title, type: string }
           - { name: text, label: Card text (text cards only), type: text }
-          - { name: icon, label: Icon (text cards only, 48×48), type: image }
+          - name: icon
+            label: Icon (text cards only)
+            type: image
+            description: Pick from the Icons folder (SVG). Upload new icons there.
+            options:
+              media: icons
+          - name: iconColour
+            label: Icon colour
+            type: select
+            description: Leave empty to keep the icon's own colours.
+            options:
+              placeholder: Original colours
+              values:
+                - { name: data-line, label: "Data · line" }
+                - { name: data-deep, label: "Data · deep" }
+                - { name: people-line, label: "People · line" }
+                - { name: people-deep, label: "People · deep" }
+                - { name: system-line, label: "System · line" }
+                - { name: system-deep, label: "System · deep" }
+                - { name: friction-line, label: "Friction · line" }
+                - { name: friction-deep, label: "Friction · deep" }
+                - { name: focus-line, label: "Focus · line" }
+                - { name: focus-deep, label: "Focus · deep" }
+                - { name: structure-line, label: "Structure · line" }
+                - { name: structure-deep, label: "Structure · deep" }
+                - { name: neutral-ink, label: "Ink" }
           - { name: image, label: Image, type: image, description: "Work & doodles: the tile image. Text cards: optional image (2x1 sits right, 1x1 sits bottom-centre)." }
           - { name: alt, label: Image description (alt text), type: string }
           - { name: link, label: Link (work and text cards), type: string }
