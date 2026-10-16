@@ -18,7 +18,7 @@ const image = z.object({
   alt: z.string().default(''),
 });
 
-// "Rounded corners + border" tickbox on image blocks.
+// "Rounded corners" tickbox on image blocks.
 const framed = z.boolean().default(false);
 
 // Page blocks, keyed by `type` (Pages CMS `blockKey`).

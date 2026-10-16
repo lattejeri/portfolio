@@ -52,19 +52,19 @@ content:
             fields:
               - { name: src, label: Image, type: image, required: true }
               - { name: alt, label: Image description (alt text), type: string }
-              - { name: framed, label: Rounded corners + border, type: boolean, default: false }
+              - { name: framed, label: Rounded corners, type: boolean, default: false }
           - name: imageInline
             label: Image (800 wide, with text)
             fields:
               - { name: src, label: Image, type: image, required: true }
               - { name: alt, label: Image description (alt text), type: string }
-              - { name: framed, label: Rounded corners + border, type: boolean, default: false }
+              - { name: framed, label: Rounded corners, type: boolean, default: false }
           - name: imageWide
             label: Image (wide, max 1200)
             fields:
               - { name: src, label: Image, type: image, required: true }
               - { name: alt, label: Image description (alt text), type: string }
-              - { name: framed, label: Rounded corners + border, type: boolean, default: false }
+              - { name: framed, label: Rounded corners, type: boolean, default: false }
           - name: columns2
             label: 2-column images
             fields:
@@ -75,7 +75,7 @@ content:
                 fields:
                   - { name: src, label: Image, type: image, required: true }
                   - { name: alt, label: Image description (alt text), type: string }
-              - { name: framed, label: Rounded corners + border, type: boolean, default: false }
+              - { name: framed, label: Rounded corners, type: boolean, default: false }
           - name: columns3
             label: 3-column images
             fields:
@@ -86,7 +86,7 @@ content:
                 fields:
                   - { name: src, label: Image, type: image, required: true }
                   - { name: alt, label: Image description (alt text), type: string }
-              - { name: framed, label: Rounded corners + border, type: boolean, default: false }
+              - { name: framed, label: Rounded corners, type: boolean, default: false }
           - name: carousel
             label: Carousel (swipe through images)
             fields:
@@ -97,7 +97,7 @@ content:
                 fields:
                   - { name: src, label: Image, type: image, required: true }
                   - { name: alt, label: Image description (alt text), type: string }
-              - { name: framed, label: Rounded corners + border, type: boolean, default: false }
+              - { name: framed, label: Rounded corners, type: boolean, default: false }
 
   - name: site
     label: Site settings
