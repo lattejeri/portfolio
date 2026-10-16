@@ -1,10 +1,10 @@
 {
   "items": [
     {
-      "kind": "work",
-      "size": "1x1",
+      "kind": "text",
+      "size": "2x1",
       "title": "eResearch Data Management Planner",
-      "image": "/portfolio/media/eresearchUI-0-home.png",
+      "icon": "/portfolio/media/eresearch-icon.svg",
       "link": "/portfolio/work/eresearch-data-management-planner/"
     },
     {
