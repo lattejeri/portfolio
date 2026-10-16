@@ -25,6 +25,9 @@ import { inlineLinks } from '../lib/inline';
   .grid-band {
     background: var(--fg);
     padding-block: 64px;
+    /* Light-on-dark text renders heavier on macOS; thinner smoothing evens it out. */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   /* Sign-off sits in the dark band, below a divider. */
   .sign-off {
