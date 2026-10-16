@@ -89,11 +89,11 @@ const { blocks } = Astro.props;
     margin-inline: auto;
   }
 
-  /* "Rounded corners + border" option. */
+  /* "Rounded corners + border" option: the border is drawn inside the image's edge. */
   img.framed {
     border-radius: 8px;
-    border: 1px solid color-mix(in srgb, var(--fg) 12%, transparent);
-    box-sizing: border-box;
+    outline: 1px solid rgb(255 255 255 / 0.75);
+    outline-offset: -1px;
   }
 
   .cols {
