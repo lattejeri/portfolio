@@ -9,27 +9,10 @@
       "link": "/portfolio/work/eresearch-data-management-planner/"
     },
     {
-      "kind": "doodle",
-      "size": "1x1",
-      "title": "\"Solve the right problem, and solve the problem right\""
-    },
-    {
       "kind": "work",
       "size": "1x1",
       "title": "Placeholder project three",
       "link": "/portfolio/work/sample-project/"
-    },
-    {
-      "kind": "text",
-      "size": "1x1",
-      "text": "Placeholder short line",
-      "image": "/portfolio/media/sample/square-1.jpg",
-      "link": "/portfolio/work/sample-project/"
-    },
-    {
-      "kind": "doodle",
-      "size": "2x1",
-      "title": "Doodle"
     },
     {
       "kind": "work",
@@ -41,13 +24,6 @@
       "kind": "work",
       "size": "1x1",
       "title": "Placeholder project five",
-      "link": "/portfolio/work/sample-project/"
-    },
-    {
-      "kind": "text",
-      "size": "2x1",
-      "text": "Placeholder text card, a longer line that spans two columns",
-      "image": "/portfolio/media/sample/wide-1.jpg",
       "link": "/portfolio/work/sample-project/"
     },
     {
