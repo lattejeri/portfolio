@@ -6,6 +6,7 @@
       "title": "eResearch Data Management Planner",
       "text": "eResearch Data Management Planner",
       "icon": "/portfolio/media/eresearch-icon.svg",
+      "image": "/portfolio/media/eresearchUI-3.png",
       "link": "/portfolio/work/eresearch-data-management-planner/"
     },
     {
@@ -24,8 +25,8 @@
       "kind": "text",
       "size": "1x1",
       "text": "Placeholder short line",
-      "link": "/portfolio/work/sample-project/",
-      "image": "/portfolio/media/sample/square-1.jpg"
+      "image": "/portfolio/media/sample/square-1.jpg",
+      "link": "/portfolio/work/sample-project/"
     },
     {
       "kind": "doodle",
@@ -48,8 +49,8 @@
       "kind": "text",
       "size": "2x1",
       "text": "Placeholder text card, a longer line that spans two columns",
-      "link": "/portfolio/work/sample-project/",
-      "image": "/portfolio/media/sample/wide-1.jpg"
+      "image": "/portfolio/media/sample/wide-1.jpg",
+      "link": "/portfolio/work/sample-project/"
     },
     {
       "kind": "work",
