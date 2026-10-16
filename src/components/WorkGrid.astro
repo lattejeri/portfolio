@@ -52,7 +52,7 @@ const sizeOf = (item: Item) => {
         </>
       );
       return item.link
-        ? <a class={`tile text s-${size}`} href={item.link}>{words}<span class="arrow" aria-hidden="true">→</span></a>
+        ? <a class={`tile text s-${size}`} href={item.link}>{words}</a>
         : <div class={`tile text s-${size}`}>{words}</div>;
     }
     if (item.kind === 'doodle') {
@@ -131,7 +131,7 @@ const sizeOf = (item: Item) => {
     box-sizing: border-box;
   }
   .text p { margin: 0; }
-  .text > :not(.card-bg, .arrow) { position: relative; } /* keep icon and text above the image (arrow is already absolute) */
+  .text > :not(.card-bg) { position: relative; } /* keep icon and text above the image */
 
   /*
     Optional background image on text cards, at full opacity.
@@ -171,20 +171,14 @@ const sizeOf = (item: Item) => {
     border: 1px dashed color-mix(in srgb, var(--fg) 20%, transparent);
     border-radius: 8px;
   }
-  .arrow {
-    position: absolute;
-    right: 20px;
-    bottom: 16px;
-    font: var(--type-h3);
-    opacity: 0;
-    transform: translateX(-8px);
-    transition: opacity 0.2s ease, transform 0.25s ease;
+  /* Linked text cards: the text underlines on hover / focus. */
+  a.text .h3 {
+    text-decoration: underline 1.5px transparent;
+    text-underline-offset: 0.18em;
+    transition: text-decoration-color 0.2s ease;
   }
-  a.text:hover .arrow,
-  a.text:focus-visible .arrow {
-    opacity: 1;
-    transform: none;
-  }
+  a.text:hover .h3,
+  a.text:focus-visible .h3 { text-decoration-color: currentColor; }
 
   /* Linked tiles lift slightly; work tiles also reveal a polaroid-style title bar. */
   a.tile {
@@ -219,9 +213,9 @@ const sizeOf = (item: Item) => {
   }
 
   @media (prefers-reduced-motion: reduce) {
-    a.tile, .label, .arrow { transition: opacity 0.2s ease; }
+    a.tile, .label { transition: opacity 0.2s ease; }
     a.tile:hover, a.tile:focus-visible { transform: none; }
-    .label, .arrow { transform: none; }
+    .label { transform: none; }
   }
 
   /* Doodles sit straight on the dark band; wording is centred, h4 size in Redaction, in paper. */
