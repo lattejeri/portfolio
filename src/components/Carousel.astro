@@ -1,16 +1,17 @@
 ---
 interface Props {
   images: { src: string; alt: string }[];
+  framed?: boolean;
 }
 
-const { images } = Astro.props;
+const { images, framed = false } = Astro.props;
 ---
 
 <section class="carousel" aria-roledescription="carousel" aria-label="Image carousel">
   <div class="track" tabindex="0">
     {images.map((img, i) => (
       <figure class="slide" aria-label={`${i + 1} of ${images.length}`}>
-        <img src={img.src} alt={img.alt} loading={i < 2 ? 'eager' : 'lazy'} draggable="false" />
+        <img class:list={{ framed }} src={img.src} alt={img.alt} loading={i < 2 ? 'eager' : 'lazy'} draggable="false" />
       </figure>
     ))}
   </div>
@@ -74,6 +75,12 @@ const { images } = Astro.props;
     width: auto;
     max-width: none;
     border-radius: 4px;
+  }
+  /* "Rounded corners + border" option (light border, since the carousel sits on the dark band). */
+  .slide img.framed {
+    border-radius: 8px;
+    border: 1px solid color-mix(in srgb, var(--bg) 18%, transparent);
+    box-sizing: border-box;
   }
 
   .controls {

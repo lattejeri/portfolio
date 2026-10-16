@@ -20,32 +20,32 @@ const { blocks } = Astro.props;
     case 'image':
       return (
         <figure class="bleed block">
-          <img src={block.src} alt={block.alt} loading="lazy" />
+          <img class:list={{ framed: block.framed }} src={block.src} alt={block.alt} loading="lazy" />
         </figure>
       );
     case 'imageInline':
       return (
         <figure class="wrap block">
-          <img class="measure" src={block.src} alt={block.alt} loading="lazy" />
+          <img class:list={["measure", { framed: block.framed }]} src={block.src} alt={block.alt} loading="lazy" />
         </figure>
       );
     case 'imageWide':
       return (
         <figure class="wide block">
-          <img src={block.src} alt={block.alt} loading="lazy" />
+          <img class:list={{ framed: block.framed }} src={block.src} alt={block.alt} loading="lazy" />
         </figure>
       );
     case 'carousel':
       return (
         <div class="block">
-          <Carousel images={block.images} />
+          <Carousel images={block.images} framed={block.framed} />
         </div>
       );
     case 'columns2':
     case 'columns3':
       return (
         <div class={`bleed block cols ${block.type}`}>
-          {block.images.map((img) => <img src={img.src} alt={img.alt} loading="lazy" />)}
+          {block.images.map((img) => <img class:list={{ framed: block.framed }} src={img.src} alt={img.alt} loading="lazy" />)}
         </div>
       );
   }
@@ -87,6 +87,13 @@ const { blocks } = Astro.props;
     max-width: 1200px;
     height: auto;
     margin-inline: auto;
+  }
+
+  /* "Rounded corners + border" option. */
+  img.framed {
+    border-radius: 8px;
+    border: 1px solid color-mix(in srgb, var(--fg) 12%, transparent);
+    box-sizing: border-box;
   }
 
   .cols {

@@ -18,15 +18,18 @@ const image = z.object({
   alt: z.string().default(''),
 });
 
+// "Rounded corners + border" tickbox on image blocks.
+const framed = z.boolean().default(false);
+
 // Page blocks, keyed by `type` (Pages CMS `blockKey`).
 const block = z.discriminatedUnion('type', [
   z.object({ type: z.literal('text'), body: z.string().default('') }),
-  image.extend({ type: z.literal('image') }),
-  image.extend({ type: z.literal('imageInline') }),
-  image.extend({ type: z.literal('imageWide') }),
-  z.object({ type: z.literal('columns2'), images: z.array(image).default([]) }),
-  z.object({ type: z.literal('columns3'), images: z.array(image).default([]) }),
-  z.object({ type: z.literal('carousel'), images: z.array(image).default([]) }),
+  image.extend({ type: z.literal('image'), framed: framed }),
+  image.extend({ type: z.literal('imageInline'), framed: framed }),
+  image.extend({ type: z.literal('imageWide'), framed: framed }),
+  z.object({ type: z.literal('columns2'), images: z.array(image).default([]), framed: framed }),
+  z.object({ type: z.literal('columns3'), images: z.array(image).default([]), framed: framed }),
+  z.object({ type: z.literal('carousel'), images: z.array(image).default([]), framed: framed }),
 ]);
 
 const work = defineCollection({

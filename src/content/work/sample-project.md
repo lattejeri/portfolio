@@ -13,6 +13,7 @@ blocks:
   - type: imageInline
     src: /portfolio/media/sample/wide-2.jpg
     alt: Placeholder photo
+    framed: true
   - type: text
     body: <h2>Wide image</h2><p>Wider than the text, capped at 1200px.</p>
   - type: imageWide
@@ -35,6 +36,7 @@ blocks:
   - type: text
     body: <h2>Two columns</h2><p>Image pairs sit side by side with a 32px gap.</p>
   - type: columns2
+    framed: true
     images:
       - src: /portfolio/media/sample/tall-1.jpg
         alt: Placeholder photo
