@@ -52,6 +52,16 @@ content:
             fields:
               - { name: src, label: Image, type: image, required: true }
               - { name: alt, label: Image description (alt text), type: string }
+          - name: imageInline
+            label: Image (800 wide, with text)
+            fields:
+              - { name: src, label: Image, type: image, required: true }
+              - { name: alt, label: Image description (alt text), type: string }
+          - name: imageWide
+            label: Image (wide, max 1200)
+            fields:
+              - { name: src, label: Image, type: image, required: true }
+              - { name: alt, label: Image description (alt text), type: string }
           - name: columns2
             label: 2-column images
             fields:

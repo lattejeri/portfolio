@@ -22,6 +22,18 @@ const { blocks } = Astro.props;
           <img src={block.src} alt={block.alt} loading="lazy" />
         </figure>
       );
+    case 'imageInline':
+      return (
+        <figure class="wrap block">
+          <img class="measure" src={block.src} alt={block.alt} loading="lazy" />
+        </figure>
+      );
+    case 'imageWide':
+      return (
+        <figure class="wide block">
+          <img src={block.src} alt={block.alt} loading="lazy" />
+        </figure>
+      );
     case 'columns2':
     case 'columns3':
       return (
@@ -50,6 +62,26 @@ const { blocks } = Astro.props;
     height: auto;
   }
 
+  /* Inline image: 800px, left-aligned with the text column. */
+  figure.wrap img {
+    display: block;
+    width: 100%;
+  }
+
+  /* Wide image: wider than the text, capped at 1200px and centred on the page. */
+  .wide {
+    box-sizing: border-box;
+    margin-inline: 0;
+    padding-inline: 32px;
+  }
+  .wide img {
+    display: block;
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+    margin-inline: auto;
+  }
+
   .cols {
     display: grid;
     gap: 32px;
@@ -59,7 +91,7 @@ const { blocks } = Astro.props;
   .columns3 { grid-template-columns: repeat(3, 1fr); }
 
   @media (max-width: 640px) {
-    .bleed { padding-inline: 16px; }
+    .bleed, .wide { padding-inline: 16px; }
     .cols { grid-template-columns: 1fr; gap: 16px; }
   }
 </style>
