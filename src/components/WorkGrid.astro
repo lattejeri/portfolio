@@ -46,7 +46,13 @@ const sizeOf = (item: Item) => {
         : <div class={`tile text s-${size}`}>{words}</div>;
     }
     if (item.kind === 'doodle') {
-      return <div class={`tile doodle s-${size}`}>{media(item.alt ?? '')}</div>;
+      return (
+        <div class={`tile doodle s-${size}`}>
+          {item.image
+            ? <img src={item.image} alt={item.alt ?? ''} loading="lazy" />
+            : <p class="h3 doodle-text">{item.title}</p>}
+        </div>
+      );
     }
     return item.link
       ? (
@@ -207,6 +213,19 @@ const sizeOf = (item: Item) => {
     .label, .arrow { transform: none; }
   }
 
-  .doodle { background: transparent; border: 1px dashed color-mix(in srgb, var(--bg) 25%, transparent); }
+  /* Doodles sit straight on the dark band; wording is centred, h3, in paper. */
+  .doodle {
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    box-sizing: border-box;
+    background: transparent;
+  }
+  .doodle img { position: absolute; inset: 0; }
+  .doodle-text {
+    margin: 0;
+    text-align: center;
+    color: var(--viz-neutral-paper);
+  }
   .doodle img { object-fit: contain; }
 </style>
