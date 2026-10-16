@@ -93,12 +93,44 @@ const isCurrent = (href: string) => Astro.url.pathname.startsWith(href);
   body {
     margin: 0;
     padding: 2rem 0 0;
-    background: var(--bg) var(--texture) repeat;
+    background: var(--bg);
     color: var(--fg);
     font: var(--type-p2);
   }
 
   /* Headings get their ramp style by default; classes apply a style to any element. */
+  /* Texture sits on a fixed layer so it stays put while the page scrolls (works on iOS too). */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: var(--texture) repeat;
+    pointer-events: none;
+  }
+
+  /* Tables: hairline #F1EFE8 grid with rounded outer corners. */
+  table {
+    width: 100%;
+    margin: 0 0 1em;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid var(--viz-structure-tint);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  th, td {
+    padding: 12px 16px;
+    text-align: left;
+    vertical-align: top;
+    border-right: 1px solid var(--viz-structure-tint);
+    border-bottom: 1px solid var(--viz-structure-tint);
+  }
+  :is(th, td):last-child { border-right: 0; }
+  tr:last-child > :is(th, td) { border-bottom: 0; }
+  :is(th, td) > p { margin: 0; }
+  :is(th, td) > p + p { margin-top: 0.5em; }
+
   h1, .h1 { font: var(--type-h1); letter-spacing: -0.01em; }
   h2, .h2 { font: var(--type-h2); letter-spacing: -0.005em; }
   h3, .h3 { font: var(--type-h3); }
