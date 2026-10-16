@@ -21,6 +21,16 @@ const sizeOf = (item: Item) => {
 };
 ---
 
+<svg class="defs" aria-hidden="true" focusable="false">
+  <!-- Pencil texture: rough edges plus grain that lets the "paper" show through the stroke. -->
+  <filter id="pencil" x="-10%" y="-10%" width="120%" height="120%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" seed="3" result="warp" />
+    <feDisplacementMap in="SourceGraphic" in2="warp" scale="3" xChannelSelector="R" yChannelSelector="G" result="rough" />
+    <feTurbulence type="fractalNoise" baseFrequency="1.4" numOctaves="2" seed="7" result="grain" />
+    <feColorMatrix in="grain" result="grainAlpha" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  3.2 0 0 0 -1.1" />
+    <feComposite in="rough" in2="grainAlpha" operator="in" />
+  </filter>
+</svg>
 <div class="grid-wrap">
 <div class="grid">
   {items.map((item) => {
@@ -226,7 +236,7 @@ const sizeOf = (item: Item) => {
   .doodle { overflow: visible; } /* let the squiggle break the frame */
   .doodle-text { position: relative; } /* text above the squiggle */
 
-  /* Random squiggle, drawn by the script below; may spill up to 20px outside the tile. */
+  /* Random pencil scribble, drawn by the script below; may spill up to 20px outside the tile. */
   .squiggle {
     position: absolute;
     inset: -20px;
@@ -235,16 +245,20 @@ const sizeOf = (item: Item) => {
     overflow: visible;
     pointer-events: none;
   }
+  .defs { position: absolute; width: 0; height: 0; }
   .squiggle path {
     fill: none;
     stroke: var(--squiggle, var(--viz-focus-line));
-    stroke-width: 4;
+    stroke-width: 3.5;
+    filter: url(#pencil);
     stroke-linecap: round;
     stroke-linejoin: round;
     vector-effect: non-scaling-stroke;
+    stroke-dasharray: var(--len, none);
+    stroke-dashoffset: var(--len, 0);
   }
   .squiggle.drawing path {
-    animation: draw 1.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation: draw 2.2s cubic-bezier(0.3, 0, 0.3, 1) forwards;
   }
   @keyframes draw { to { stroke-dashoffset: 0; } }
   @media (prefers-reduced-motion: reduce) {
@@ -259,11 +273,11 @@ const sizeOf = (item: Item) => {
 </style>
 
 <script>
-  // Draws a random marker squiggle in each doodle tile, in one of the palette's line colours.
+  // Draws a random pencil scribble in each doodle tile, in one of the palette's line colours.
   const colours = ['data', 'people', 'system', 'friction', 'focus'].map((f) => `var(--viz-${f}-line)`);
   const rand = (min: number, max: number) => min + Math.random() * (max - min);
   const SPILL = 20; // px the squiggle may extend past the tile
-  const INSET = 12; // keep points this far inside the spill edge (curves bulge slightly past their points)
+  const INSET = 8; // keep the shape this far inside the spill edge (stroke width + pencil roughness)
 
   // Smooth curve through points (Catmull-Rom converted to cubic Béziers).
   const smoothPath = (pts: [number, number][]) => {
@@ -277,24 +291,44 @@ const sizeOf = (item: Item) => {
     return d;
   };
 
-  const squiggle = (w: number, h: number) => {
-    // Bounds include the spill margin; the SVG is offset by -SPILL so 0..w+2*SPILL covers it.
-    const W = w + SPILL * 2, H = h + SPILL * 2;
-    const size = Math.min(w, h);
-    const pts: [number, number][] = [];
-    let x = rand(0.2, 0.8) * W, y = rand(0.2, 0.8) * H;
-    let angle = rand(0, Math.PI * 2);
-    const count = Math.round(rand(6, 10));
-    for (let i = 0; i < count; i++) {
-      pts.push([x, y]);
-      angle += rand(-1.6, 1.6); // wander, with the odd sharp turn
-      const step = rand(0.18, 0.4) * size;
-      x += Math.cos(angle) * step;
-      y += Math.sin(angle) * step;
-      // Bounce off the spill-extended edges, inset a little for curve bulge and stroke width.
-      if (x < INSET || x > W - INSET) { angle = Math.PI - angle; x = Math.min(Math.max(x, INSET), W - INSET); }
-      if (y < INSET || y > H - INSET) { angle = -angle; y = Math.min(Math.max(y, INSET), H - INSET); }
+  type Pt = [number, number];
+
+  // A child's scribble: the "pencil" keeps chasing random spots inside a small blob, with
+  // momentum, so it overshoots, loops back and piles strokes on top of each other.
+  const scribble = (r: number): Pt[] => {
+    const pts: Pt[] = [];
+    const squash = rand(0.45, 1), tilt = rand(0, Math.PI);
+    const steps = Math.round(rand(70, 130));
+    let [x, y] = [rand(-0.5, 0.5) * r, rand(-0.5, 0.5) * r];
+    let [vx, vy] = [0, 0];
+    let target: Pt = [0, 0];
+    const pick = (): Pt => {
+      const a = rand(0, Math.PI * 2), d = Math.sqrt(Math.random()) * r * rand(0.9, 1.25);
+      return [Math.cos(a) * d, Math.sin(a) * d * squash];
+    };
+    for (let i = 0; i < steps; i++) {
+      if (i % Math.round(rand(2, 6)) === 0) target = pick(); // change its mind often
+      const pull = rand(0.25, 0.5);
+      vx = vx * 0.72 + (target[0] - x) * pull;
+      vy = vy * 0.72 + (target[1] - y) * pull;
+      x += vx + rand(-0.06, 0.06) * r; // shaky hand
+      y += vy + rand(-0.06, 0.06) * r;
+      pts.push([x * Math.cos(tilt) - y * Math.sin(tilt), x * Math.sin(tilt) + y * Math.cos(tilt)]);
     }
+    return pts;
+  };
+
+  const squiggle = (w: number, h: number) => {
+    // The SVG covers the tile plus SPILL on every side, so its coordinates run 0..w+2*SPILL.
+    const W = w + SPILL * 2, H = h + SPILL * 2;
+    const r = Math.min(w, h) * rand(0.16, 0.26);
+    const shape = scribble(r);
+    // Place it anywhere, keeping the whole scribble inside the spill area.
+    const xs = shape.map((p) => p[0]), ys = shape.map((p) => p[1]);
+    const [minX, maxX, minY, maxY] = [Math.min(...xs), Math.max(...xs), Math.min(...ys), Math.max(...ys)];
+    const cx = rand(INSET - minX, Math.max(INSET - minX, W - INSET - maxX));
+    const cy = rand(INSET - minY, Math.max(INSET - minY, H - INSET - maxY));
+    const pts = shape.map(([x, y]): Pt => [x + cx, y + cy]);
     return { d: smoothPath(pts), viewBox: `0 0 ${W} ${H}` };
   };
 
@@ -314,9 +348,8 @@ const sizeOf = (item: Item) => {
     svg.setAttribute('preserveAspectRatio', 'none');
     path.setAttribute('d', d);
     path.style.setProperty('--squiggle', colours[Math.floor(Math.random() * colours.length)]);
-    const len = path.getTotalLength();
-    path.style.strokeDasharray = `${len}`;
-    path.style.strokeDashoffset = `${len}`;
+    // Length goes in a variable (not inline dash styles) so the reduced-motion rule can still show it.
+    path.style.setProperty('--len', `${path.getTotalLength()}`);
     io.observe(svg);
   }
 </script>
