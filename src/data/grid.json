@@ -14,6 +14,12 @@
       "size": "2x1",
       "title": "Solve the right problem, then solve the problem right",
       "text": "Solve the right problem, then solve the problem right"
+    },
+    {
+      "kind": "work",
+      "size": "1x1",
+      "title": "Research HQ",
+      "image": "/portfolio/media/rhq-thumb.png"
     }
   ]
 }
