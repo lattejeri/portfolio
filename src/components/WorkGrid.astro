@@ -117,14 +117,12 @@ const sizeOf = (item: Item) => {
   .text > :not(.card-bg) { position: relative; } /* keep icon, text and arrow above the image */
 
   /*
-    Optional background image on text cards: 35% opacity fading to 0%.
-    2x1: anchored right, fades right-to-left on a ~6° tilt.
-    1x1: anchored bottom-centre, fades upwards on a ~5° tilt.
+    Optional background image on text cards, at full opacity.
+    2x1: anchored right. 1x1: anchored bottom-centre.
   */
   .tile .card-bg {
     position: absolute;
     object-fit: contain;
-    opacity: 0.35;
     pointer-events: none;
   }
   .text.s-2x1 .card-bg {
@@ -134,7 +132,6 @@ const sizeOf = (item: Item) => {
     height: 100%;
     max-width: 100%;
     object-position: right center;
-    mask-image: linear-gradient(96deg, transparent 12%, #000);
   }
   .text.s-1x1 .card-bg {
     bottom: 0;
@@ -144,7 +141,6 @@ const sizeOf = (item: Item) => {
     height: auto;
     max-height: 100%;
     object-position: center bottom;
-    mask-image: linear-gradient(175deg, transparent 25%, #000); /* fully faded in the top quarter */
   }
   .tile .icon {
     flex: none;
