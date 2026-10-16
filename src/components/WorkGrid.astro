@@ -249,7 +249,7 @@ const sizeOf = (item: Item) => {
   .squiggle path {
     fill: none;
     stroke: var(--squiggle, var(--viz-focus-line));
-    stroke-width: 3.5;
+    stroke-width: 4;
     filter: url(#pencil);
     stroke-linecap: round;
     stroke-linejoin: round;
@@ -258,7 +258,7 @@ const sizeOf = (item: Item) => {
     stroke-dashoffset: var(--len, 0);
   }
   .squiggle.drawing path {
-    animation: draw 2.2s cubic-bezier(0.3, 0, 0.3, 1) forwards;
+    animation: draw 1.75s cubic-bezier(0.3, 0, 0.3, 1) forwards;
   }
   @keyframes draw { to { stroke-dashoffset: 0; } }
   @media (prefers-reduced-motion: reduce) {
@@ -298,7 +298,7 @@ const sizeOf = (item: Item) => {
   const scribble = (r: number): Pt[] => {
     const pts: Pt[] = [];
     const squash = rand(0.45, 1), tilt = rand(0, Math.PI);
-    const steps = Math.round(rand(70, 130));
+    const steps = Math.round(rand(56, 104));
     let [x, y] = [rand(-0.5, 0.5) * r, rand(-0.5, 0.5) * r];
     let [vx, vy] = [0, 0];
     let target: Pt = [0, 0];
