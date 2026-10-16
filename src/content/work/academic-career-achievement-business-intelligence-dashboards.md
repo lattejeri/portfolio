@@ -1,6 +1,6 @@
 ---
 title: Academic career achievement business intelligence dashboards
-draft: true
+draft: false
 blocks:
   - type: text
     body: <h2>Applying global UI patterns within a constrained business intelligence
@@ -38,4 +38,15 @@ blocks:
       found its audience, I connected our intranet content owners and our change
       manager to provide contextual backlinks for academic audience
       segments.</p>
+  - type: columns2
+    images:
+      - src: /portfolio/media/rhq3.png
+    framed: false
+  - type: columns2
+    images:
+      - src: /portfolio/media/rhqui-wires-01.png
+      - src: /portfolio/media/rhqui-wires-02.png
+      - src: /portfolio/media/rhqui-wires-03.png
+      - src: /portfolio/media/rhqui-wires-04.png
+    framed: false
 ---
