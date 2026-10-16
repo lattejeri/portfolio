@@ -140,6 +140,9 @@ const isCurrent = (href: string) => Astro.url.pathname.startsWith(href);
   .p2 { font: var(--type-p2); }
   .caption { font: var(--type-caption); color: var(--muted); }
 
+  /* Modifier: keep a ramp style's size/leading but set it in Redaction, e.g. class="h4 font-redaction". */
+  .font-redaction { font-family: var(--font-redaction); font-weight: 400; }
+
   h1, h2, h3, h4, h5 { margin: 0 0 0.5em; }
   p { margin: 0 0 1em; }
   * + :is(h2, h3, h4, h5) { margin-top: 1.5em; }
