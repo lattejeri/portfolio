@@ -24,7 +24,8 @@
       "kind": "text",
       "size": "1x1",
       "text": "Placeholder short line",
-      "link": "/portfolio/work/sample-project/"
+      "link": "/portfolio/work/sample-project/",
+      "image": "/portfolio/media/sample/square-1.jpg"
     },
     {
       "kind": "doodle",
@@ -47,7 +48,8 @@
       "kind": "text",
       "size": "2x1",
       "text": "Placeholder text card, a longer line that spans two columns",
-      "link": "/portfolio/work/sample-project/"
+      "link": "/portfolio/work/sample-project/",
+      "image": "/portfolio/media/sample/wide-1.jpg"
     },
     {
       "kind": "work",

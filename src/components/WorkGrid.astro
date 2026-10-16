@@ -34,6 +34,7 @@ const sizeOf = (item: Item) => {
       // Icon is decorative; the card text says what the topic is.
       const words = (
         <>
+          {item.image && <img class="card-bg" src={item.image} alt="" aria-hidden="true" loading="lazy" />}
           {item.icon
             ? <img class="icon" src={item.icon} alt="" width="48" height="48" />
             : <span class="icon icon-empty" aria-hidden="true" />}
@@ -113,6 +114,38 @@ const sizeOf = (item: Item) => {
     box-sizing: border-box;
   }
   .text p { margin: 0; }
+  .text > :not(.card-bg) { position: relative; } /* keep icon, text and arrow above the image */
+
+  /*
+    Optional background image on text cards: 35% opacity fading to 0%.
+    2x1: anchored right, fades right-to-left on a ~6° tilt.
+    1x1: anchored bottom-centre, fades upwards on a ~5° tilt.
+  */
+  .tile .card-bg {
+    position: absolute;
+    object-fit: contain;
+    opacity: 0.35;
+    pointer-events: none;
+  }
+  .text.s-2x1 .card-bg {
+    top: 0;
+    right: 0;
+    width: auto;
+    height: 100%;
+    max-width: 100%;
+    object-position: right center;
+    mask-image: linear-gradient(96deg, transparent 12%, #000);
+  }
+  .text.s-1x1 .card-bg {
+    bottom: 0;
+    left: 50%;
+    translate: -50% 0;
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    object-position: center bottom;
+    mask-image: linear-gradient(175deg, transparent 8%, #000);
+  }
   .tile .icon {
     flex: none;
     width: 48px;
