@@ -22,9 +22,14 @@ blocks:
     alt: Mapped current state of data management compliance steps which researchers
       had to navigate.
   - type: text
-    body: <h4>Try to complete the current state process with no domain
+    body: <h4>Complete the current state process with no domain
       knowledge</h4><p>With a ‘beginners mind’, try to walk through the entire
       process, asking questions along the way.</p><p></p>
+  - type: columns3
+    images:
+      - src: /portfolio/media/eresearch-expert-review.png
+      - src: /portfolio/media/eresearch-exper-review-2.png
+      - src: /portfolio/media/eresearch-exper-review-3.png
   - type: text
     body: <h4>Talk with researchers who’re about to submit their research
       proposal</h4><p></p>
