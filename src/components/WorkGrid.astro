@@ -120,7 +120,7 @@ const sizeOf = (item: Item) => {
     box-sizing: border-box;
   }
   .text p { margin: 0; }
-  .text > :not(.card-bg) { position: relative; } /* keep icon, text and arrow above the image */
+  .text > :not(.card-bg, .arrow) { position: relative; } /* keep icon and text above the image (arrow is already absolute) */
 
   /*
     Optional background image on text cards, at full opacity.
