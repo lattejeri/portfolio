@@ -30,6 +30,13 @@ blocks:
       conduit to connect with development. To fill in the details, provide type
       styles, data table patterns, and a data visualisation palette so they can
       build with confidence.</p>
+  - type: columns2
+    images:
+      - src: /portfolio/media/rhqui-wires-01.png
+      - src: /portfolio/media/rhqui-wires-02.png
+      - src: /portfolio/media/rhqui-wires-03.png
+      - src: /portfolio/media/rhqui-wires-04.png
+    framed: false
   - type: text
     body: <h4>‘Productise’ the tool to amplify change management</h4><p>Every comms
       person knows you have to sell the sizzle <em>as well as</em> the steak.
@@ -41,12 +48,5 @@ blocks:
   - type: columns2
     images:
       - src: /portfolio/media/rhq3.png
-    framed: false
-  - type: columns2
-    images:
-      - src: /portfolio/media/rhqui-wires-01.png
-      - src: /portfolio/media/rhqui-wires-02.png
-      - src: /portfolio/media/rhqui-wires-03.png
-      - src: /portfolio/media/rhqui-wires-04.png
     framed: false
 ---
