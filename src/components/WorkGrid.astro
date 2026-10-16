@@ -50,7 +50,7 @@ const sizeOf = (item: Item) => {
         <div class={`tile doodle s-${size}`}>
           {item.image
             ? <img src={item.image} alt={item.alt ?? ''} loading="lazy" />
-            : <p class="h3 doodle-text">{item.title}</p>}
+            : <p class="h4 doodle-text">{item.title}</p>}
         </div>
       );
     }
@@ -213,7 +213,7 @@ const sizeOf = (item: Item) => {
     .label, .arrow { transform: none; }
   }
 
-  /* Doodles sit straight on the dark band; wording is centred, h3, in paper. */
+  /* Doodles sit straight on the dark band; wording is centred, h4, in paper. */
   .doodle {
     display: grid;
     place-items: center;
