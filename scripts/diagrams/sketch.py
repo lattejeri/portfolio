@@ -132,7 +132,7 @@ def box(x, y, w, h, rnd, r=10, fill="none", width=3, color=INK, dash=None, opaci
     """Rounded rectangle drawn with a slightly unsteady hand."""
     r = max(2, min(r, w / 2, h / 2))
     pts = [(px + rnd.uniform(-amount, amount) * k, py + rnd.uniform(-amount, amount) * k)
-           for px, py, k in _rounded_rect_points(x, y, w, h, r)]
+           for px, py, k in _rounded_rect_points(x, y, w, h, r, step=36 if amount < 4 else 90)]
     d = _smooth(pts, closed=True)
     out = ""
     if fill != "none":

@@ -22,13 +22,9 @@ W, H = 1600, 840
 
 
 def backdrop(seed, variant=0):
-    """Eggshell paper with two soft dusty-pink blobs (a nod to the original pink shapes)."""
-    left = [(0, 260), (220, 330), (520, 360), (640, 520), (600, 700), (720, H), (0, H)]
-    right = [(860, 0), (W, 0), (W, 520), (1380, 420), (1080, 360), (980, 220)]
-    if variant:
-        left = [(0, 380), (260, 420), (420, 560), (640, 600), (760, H), (0, H)]
-        right = [(900, 0), (W, 0), (W, 380), (1300, 300), (1060, 240)]
-    return f'<rect width="{W}" height="{H}" fill="{PAPER}"/>' + blob(left) + blob(right)
+    """A single paper-coloured sheet with organic, hand-drawn edges (transparent around it)."""
+    r = rng(100 + seed)
+    return box(14, 14, W - 28, H - 28, r, r=48, fill=PAPER, width=0, amount=7)
 
 
 def label(s, x, y=730, sub=None):

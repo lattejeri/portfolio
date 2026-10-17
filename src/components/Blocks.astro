@@ -47,12 +47,15 @@ const { blocks } = Astro.props;
     case 'embed':
       return (
         <div class="block embed">
-          <iframe
-            src={block.src}
-            title={block.title}
-            loading="lazy"
-            style={`--embed-height: ${block.height}px`}
-          />
+          <div class="embed-inner">
+            <img class="embed-cue" src="/media/play-with-me.svg" alt="Play with me" width="172" height="73" />
+            <iframe
+              src={block.src}
+              title={block.title}
+              loading="lazy"
+              style={`--embed-height: ${block.height}px`}
+            />
+          </div>
         </div>
       );
     case 'columns2':
@@ -113,12 +116,19 @@ const { blocks } = Astro.props;
 
   /* Embedded pages (e.g. the Research HQ style guide): up to 1200px, centred, so they can break the text spine. */
   .embed { padding-inline: 32px; }
+  .embed-inner {
+    max-width: 1200px;
+    margin-inline: auto;
+  }
+  /* "Play with me" cue, left-aligned to the iframe. */
+  .embed-cue {
+    display: block;
+    margin-bottom: 20px;
+  }
   .embed iframe {
     display: block;
     width: 100%;
-    max-width: 1200px;
     height: min(var(--embed-height), 85vh);
-    margin-inline: auto;
     box-sizing: border-box;
     border: 1px solid #e6e1da;
     border-radius: 8px;

@@ -9,7 +9,6 @@ blocks:
     src: /portfolio/media/wcq-ds/inconsistent-styles.svg
     alt: Four different heading styles, four different button styles and four slightly different blues
     caption: The legacy of previous projects had left us with an inconsistent set of type, colour and interface styles
-    framed: true
   - type: text
     body: <h3>Admit you're not the expert in the room</h3><p>We may be design subject matter experts, but definitely not technical ones. We communicated early on that we wanted to learn from the experts how they wanted to build into the future.</p>
   - type: text
@@ -40,28 +39,24 @@ blocks:
     src: /portfolio/media/wcq-ds/atomic-layers.svg
     alt: Atoms, molecules and templates, with the organisms layer faded and crossed out
     caption: The Development team didn't see value in the 'Organism' Atomic layer, so we cut it
-    framed: true
   - type: text
     body: <h3>Be lean and consistent</h3><p>To eliminate the risk of inconsistency, we designed universal components, where:</p><ul><li>Design tokens were used to specify a style, meaning changes could be made once globally</li><li>All component spacing adhered to a ¼ rem based grid</li><li>Every colour has meaning or function, e.g. green for success, purple for guidance</li><li>Our type styles were restricted to four headings, two captions and two paragraph styles</li><li>All icons have meaning</li><li>Atoms (like buttons) have as few variations as possible</li></ul><h3>Practice discipline</h3><p>As the maturity of a design system progresses, the need to design new components should diminish. After 'climbing the initial hill' of designing components for the first couple of projects, we'd review as a committee if a new component was ever needed. Using and reusing existing components takes priority over the convenience of designing elements just to meet the needs of a specific project.</p>
   - type: imageWide
     src: /portfolio/media/wcq-ds/maturity-curve.svg
     alt: An S-shaped curve of design system maturity over time, annotated from creating new components, to reusing existing ones, to a fully functioning system
     caption: "'Climbing the hill' of design system maturity"
-    framed: true
   - type: text
     body: <h3>Ensure visibility of components</h3><p>Both Design and Development need clear visibility over what components exist and how they're built. We use a combination of Figma, Zeroheight and Storybook to keep visibility of each component in the design system.</p>
   - type: imageWide
     src: /portfolio/media/wcq-ds/design-system-tools.svg
     alt: Figma to design components, Zeroheight to document the system, Storybook to document the code
     caption: Each of the tools used to document and build the design system
-    framed: true
   - type: text
     body: <h3>Speak the same language as development</h3><p>One of the biggest insights from the process of building a design system is the importance of using the same language as Development. We encouraged Development to lead the naming conventions of components, to ensure they were global and matched the way they were built. In our component library (Figma), we named elements the same name that they were going to be called in code.</p><p>When documenting components, the Colour, Structure and Typography should be documented in table format using the language that Development are going to use to build.</p>
   - type: imageWide
     src: /portfolio/media/wcq-ds/documentation-attributes.svg
     alt: A numbered component, a colour token, a spacing token and a typography mixin
     caption: The Colour, Structure and Typography should be documented in table format using the language that Development are going to use to build
-    framed: true
   - type: text
     body: <h3>Examples of documentation</h3><p>Below are some examples of documented Atomic components. For each Atomic component, the following attributes are documented:</p>
   - type: imageWide
