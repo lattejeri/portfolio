@@ -37,6 +37,10 @@ blocks:
       - src: /portfolio/media/rhqui-wires-03.png
       - src: /portfolio/media/rhqui-wires-04.png
     framed: false
+  - type: embed
+    src: https://lattejeri.github.io/portfolio/styleguides/research-hq/
+    title: Embedded content
+    height: 800
   - type: text
     body: <h4>‘Productise’ the tool to amplify change management</h4><p>Every comms
       person knows you have to sell the sizzle <em>as well as</em> the steak.
