@@ -21,6 +21,13 @@
       "title": "Research HQ",
       "image": "/portfolio/media/rhq-dashboard-thumb 1.svg",
       "link": "/portfolio/work/rhq/"
+    },
+    {
+      "kind": "work",
+      "size": "1x1",
+      "title": "WorkCover Queensland Atomic Design System",
+      "text": "WorkCover Queensland Atomic Design System",
+      "image": "/portfolio/media/wcq thumb.svg"
     }
   ]
 }
