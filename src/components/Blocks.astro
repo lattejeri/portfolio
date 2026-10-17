@@ -48,7 +48,7 @@ const { blocks } = Astro.props;
       return (
         <div class="block embed">
           <div class="embed-inner">
-            <img class="embed-cue" src="/media/play-with-me.svg" alt="Play with me" width="172" height="73" />
+            <img class="embed-cue" src={`${import.meta.env.BASE_URL.replace(/\/$/, "")}/media/play-with-me.svg`} alt="Play with me" width="172" height="73" />
             <iframe
               src={block.src}
               title={block.title}
