@@ -45,8 +45,7 @@ blocks:
       found its audience, I connected our intranet content owners and our change
       manager to provide contextual backlinks for academic audience
       segments.</p>
-  - type: columns2
-    images:
-      - src: /portfolio/media/rhq3.png
+  - type: imageInline
+    src: /portfolio/media/rhq3.png
     framed: false
 ---
