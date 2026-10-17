@@ -7,24 +7,24 @@ blocks:
     title: Energize prototype
     height: 800
   - type: text
-    body: <h2><strong>Turning a dormant 2018 brochure site into something fitting
-      for Energize's next growth step</strong></h2><p>On the ground, Energize
-      Industries is a heavyweight commercial electrical contractor. For over 20
-      years, they’ve delivered high-voltage upgrades, main switchboards,
-      greenfield supermarkets, and critical network shutdowns across Queensland
-      for Tier-1 builders and major brands like ADCO, Hutchinson Builders,
-      Coles, Woolworths, and Brisbane Racing Club.</p><p>Online, however, you
-      wouldn’t have known it. Their legacy website (<code>eesm.com.au</code>)
-      has been untouched since before Covid, and did a poor job of demonstrating
-      their strongest differentiators. Domestic odd-job services are mixed in
-      with high-stakes statutory compliance work, and there was no way offering
-      no way for potential clients to download a capability statement or submit
+    body: <h2>Turning a dormant 2018 brochure site into something fitting for
+      Energize's next growth step</h2><p>On the ground, Energize Industries is a
+      heavyweight commercial electrical contractor. For over 20 years, they’ve
+      delivered high-voltage upgrades, main switchboards, greenfield
+      supermarkets, and critical network shutdowns across Queensland for Tier-1
+      builders and major brands like ADCO, Hutchinson Builders, Coles,
+      Woolworths, and Brisbane Racing Club.</p><p>Online, however, you wouldn’t
+      have known it. Their legacy website (<code>eesm.com.au</code>) has been
+      untouched since before Covid, and did a poor job of demonstrating their
+      strongest differentiators. Domestic odd-job services are mixed in with
+      high-stakes statutory compliance work, and there was no way offering no
+      way for potential clients to download a capability statement or submit
       tender requests.</p>
   - type: text
-    body: "<h3><strong>How might we reposition a 20-year electrical contractor so
-      Tier-1 estimators and facility managers immediately trust their capability
-      and convert?</strong></h3><h4>Audit the legacy experience through the eyes
-      of a commercial estimator</h4><p>Looking at the existing digital presence
+    body: "<h3>How might we reposition a 20-year electrical contractor so Tier-1
+      estimators and facility managers immediately trust their capability and
+      convert?</h3><h4>Audit the legacy experience through the eyes of a
+      commercial estimator</h4><p>Looking at the existing digital presence
       alongside competitors in the commercial electrical space, I audited the
       current site and collateral from the perspective of two core B2B personas:
       a <strong>Head Contractor Estimator</strong> vetting subcontractors for a
@@ -96,8 +96,7 @@ blocks:
       the layout. Instead of reaching for Elementor or Divi, I engineered a
       custom WordPress Full Site Editing (FSE) Gutenberg Block Theme</p>
   - type: text
-    body: <h3><strong>Results &amp;
-      deliverables</strong></h3><ul><li><p><strong>Cohesive B2B brand
+    body: <h3>Results &amp; deliverables</h3><ul><li><p><strong>Cohesive B2B brand
       ecosystem:</strong> Refreshed brand identity, corporate email signatures,
       and an online/offline Capability Statement</p></li><li><p><strong>9
       production-ready page templates &amp; 30+ modular block patterns:</strong>
