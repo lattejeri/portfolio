@@ -43,9 +43,8 @@ const { blocks } = Astro.props;
       );
     case 'embed':
       return (
-        <div class:list={['block', 'embed', `embed-${block.width}`, { wrap: block.width === 'inline' }]}>
+        <div class="block embed">
           <iframe
-            class:list={{ measure: block.width === 'inline' }}
             src={block.src}
             title={block.title}
             loading="lazy"
@@ -106,18 +105,18 @@ const { blocks } = Astro.props;
     border-radius: 8px;
   }
 
-  /* Embedded pages (e.g. the Research HQ style guide). */
+  /* Embedded pages (e.g. the Research HQ style guide): up to 1200px, centred, so they can break the text spine. */
+  .embed { padding-inline: 32px; }
   .embed iframe {
     display: block;
     width: 100%;
+    max-width: 1200px;
     height: min(var(--embed-height), 85vh);
-    border: 1px solid color-mix(in srgb, var(--fg) 12%, transparent);
+    margin-inline: auto;
+    border: 0;
     border-radius: 8px;
     background: #fff;
   }
-  .embed-wide { padding-inline: 32px; }
-  .embed-wide iframe { max-width: 1200px; margin-inline: auto; }
-  .embed-full { padding-inline: 32px; }
 
   .cols {
     display: grid;
@@ -128,7 +127,7 @@ const { blocks } = Astro.props;
   .columns3 { grid-template-columns: repeat(3, 1fr); }
 
   @media (max-width: 640px) {
-    .bleed, .wide, .embed-wide, .embed-full { padding-inline: 16px; }
+    .bleed, .wide, .embed { padding-inline: 16px; }
     .cols { grid-template-columns: 1fr; gap: 16px; }
   }
 </style>

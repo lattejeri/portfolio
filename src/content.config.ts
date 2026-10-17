@@ -35,7 +35,6 @@ const block = z.discriminatedUnion('type', [
     src: z.string(),
     title: z.string().default('Embedded content'),
     height: z.number().default(800),
-    width: z.enum(['inline', 'wide', 'full']).default('wide'),
   }),
 ]);
 
