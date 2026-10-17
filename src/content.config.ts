@@ -24,9 +24,9 @@ const framed = z.boolean().default(false);
 // Page blocks, keyed by `type` (Pages CMS `blockKey`).
 const block = z.discriminatedUnion('type', [
   z.object({ type: z.literal('text'), body: z.string().default('') }),
-  image.extend({ type: z.literal('image'), framed: framed }),
-  image.extend({ type: z.literal('imageInline'), framed: framed }),
-  image.extend({ type: z.literal('imageWide'), framed: framed }),
+  image.extend({ type: z.literal('image'), framed: framed, caption: z.string().optional() }),
+  image.extend({ type: z.literal('imageInline'), framed: framed, caption: z.string().optional() }),
+  image.extend({ type: z.literal('imageWide'), framed: framed, caption: z.string().optional() }),
   z.object({ type: z.literal('columns2'), images: z.array(image).default([]), framed: framed }),
   z.object({ type: z.literal('columns3'), images: z.array(image).default([]), framed: framed }),
   z.object({ type: z.literal('carousel'), images: z.array(image).default([]), framed: framed }),

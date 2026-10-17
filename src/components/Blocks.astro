@@ -21,18 +21,21 @@ const { blocks } = Astro.props;
       return (
         <figure class="bleed block">
           <img class:list={{ framed: block.framed }} src={block.src} alt={block.alt} loading="lazy" />
+          {block.caption && <figcaption class="wrap caption">{block.caption}</figcaption>}
         </figure>
       );
     case 'imageInline':
       return (
         <figure class="wrap block">
           <img class:list={["measure", { framed: block.framed }]} src={block.src} alt={block.alt} loading="lazy" />
+          {block.caption && <figcaption class="caption measure">{block.caption}</figcaption>}
         </figure>
       );
     case 'imageWide':
       return (
         <figure class="wide block">
           <img class:list={{ framed: block.framed }} src={block.src} alt={block.alt} loading="lazy" />
+          {block.caption && <figcaption class="wrap caption">{block.caption}</figcaption>}
         </figure>
       );
     case 'carousel':
@@ -105,6 +108,9 @@ const { blocks } = Astro.props;
     border-radius: 8px;
   }
 
+  /* Image captions sit under the image, aligned to the text column. */
+  figcaption.caption { margin-top: 12px; }
+
   /* Embedded pages (e.g. the Research HQ style guide): up to 1200px, centred, so they can break the text spine. */
   .embed { padding-inline: 32px; }
   .embed iframe {
@@ -113,7 +119,8 @@ const { blocks } = Astro.props;
     max-width: 1200px;
     height: min(var(--embed-height), 85vh);
     margin-inline: auto;
-    border: 0;
+    box-sizing: border-box;
+    border: 1px solid #e6e1da;
     border-radius: 8px;
     background: #fff;
   }
