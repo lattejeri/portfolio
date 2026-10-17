@@ -106,6 +106,21 @@ content:
                   - { name: src, label: Image, type: image, required: true }
                   - { name: alt, label: Image description (alt text), type: string }
               - { name: framed, label: Rounded corners, type: boolean, default: false }
+          - name: embed
+            label: Embed (web page in a frame)
+            fields:
+              - { name: src, label: Address, type: string, required: true, description: "e.g. /portfolio/styleguides/research-hq/index.html" }
+              - { name: title, label: Title (for screen readers), type: string, default: Embedded content }
+              - { name: height, label: Height (px), type: number, default: 800 }
+              - name: width
+                label: Width
+                type: select
+                default: wide
+                options:
+                  values:
+                    - { name: inline, label: "Inline (800, with text)" }
+                    - { name: wide, label: "Wide (max 1200)" }
+                    - { name: full, label: "Full width" }
 
   - name: site
     label: Site settings

@@ -1,0 +1,955 @@
+{
+ "layout": [],
+ "font": [],
+ "colour": [],
+ "controls": [
+  [
+   "/Frame 212/Frame 9/Frame 7/Table 1/Table",
+   [
+    {
+     "cells": [
+      "Element",
+      "State",
+      "Property",
+      "Value"
+     ],
+     "rule": 1.0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "Label",
+      "-",
+      "font color",
+      "#1C1C1C"
+     ],
+     "rule": 0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "",
+      "",
+      "font size",
+      "10"
+     ],
+     "rule": 0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "",
+      "",
+      "font weight",
+      "bold"
+     ],
+     "rule": 1.0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "Input control",
+      "-",
+      "font color",
+      "#1C1C1C"
+     ],
+     "rule": 0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "",
+      "-",
+      "font size",
+      "10"
+     ],
+     "rule": 0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "",
+      "-",
+      "background color",
+      "#ffffff"
+     ],
+     "rule": 1.0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "Background",
+      "-",
+      "background color",
+      "#ffffff"
+     ],
+     "rule": 0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "",
+      "",
+      "padding",
+      "20, 20, 20, 20"
+     ],
+     "rule": 1.0,
+     "h": 40
+    }
+   ]
+  ],
+  [
+   "/Frame 213/Frame 9/Frame 7/Table 1/Table",
+   [
+    {
+     "cells": [
+      "Element",
+      "State",
+      "Property",
+      "Value"
+     ],
+     "rule": 1.0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "Label",
+      "-",
+      "font color",
+      "#1C1C1C"
+     ],
+     "rule": 0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "",
+      "",
+      "font size",
+      "10"
+     ],
+     "rule": 1.0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "Input control",
+      "-",
+      "font color",
+      "#1C1C1C"
+     ],
+     "rule": 0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "",
+      "-",
+      "font size",
+      "10"
+     ],
+     "rule": 0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "",
+      "-",
+      "background color",
+      "#ffffff"
+     ],
+     "rule": 1.0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "Background",
+      "-",
+      "background color",
+      "#ffffff"
+     ],
+     "rule": 0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "",
+      "",
+      "padding",
+      "20, 20, 20, 20"
+     ],
+     "rule": 1.0,
+     "h": 40
+    }
+   ]
+  ]
+ ],
+ "button": [
+  [
+   "/Frame 9/Frame 7/Table 1/Table",
+   [
+    {
+     "cells": [
+      "Element",
+      "State",
+      "Property",
+      "Value"
+     ],
+     "rule": 1.0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "Primary button",
+      "Default",
+      "background color",
+      "#004B8B"
+     ],
+     "rule": 0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "",
+      "",
+      "font color",
+      "#ffffff"
+     ],
+     "rule": 0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "",
+      "",
+      "font size",
+      "10"
+     ],
+     "rule": 0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "",
+      "",
+      "padding",
+      "4, 8, 4, 8"
+     ],
+     "rule": 1.0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "Primary button",
+      "Disabled",
+      "background color",
+      "#F5F5F5"
+     ],
+     "rule": 0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "",
+      "",
+      "font color",
+      "#B6B6B6"
+     ],
+     "rule": 0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "",
+      "",
+      "font size",
+      "10"
+     ],
+     "rule": 0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "",
+      "",
+      "padding",
+      "4, 8, 4, 8"
+     ],
+     "rule": 1.0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "Secondary button",
+      "Default",
+      "background color",
+      "#ffffff"
+     ],
+     "rule": 0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "",
+      "",
+      "font color",
+      "#004B8B"
+     ],
+     "rule": 0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "",
+      "",
+      "font size",
+      "10"
+     ],
+     "rule": 0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "",
+      "",
+      "border size",
+      "1px"
+     ],
+     "rule": 0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "",
+      "",
+      "border colour",
+      "#DBDBDB"
+     ],
+     "rule": 0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "",
+      "",
+      "padding",
+      "4, 8, 4, 8"
+     ],
+     "rule": 1.0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "Secondary button",
+      "Disabled",
+      "background color",
+      "#F5F5F5"
+     ],
+     "rule": 0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "",
+      "",
+      "font color",
+      "#B6B6B6"
+     ],
+     "rule": 0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "",
+      "",
+      "font size",
+      "10"
+     ],
+     "rule": 0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "",
+      "",
+      "padding",
+      "4, 8, 4, 8"
+     ],
+     "rule": 1.0,
+     "h": 40
+    }
+   ]
+  ]
+ ],
+ "header": [
+  [
+   "/Frame 10/Frame 7/Table 1/Table",
+   [
+    {
+     "cells": [
+      "Element",
+      "State",
+      "Property",
+      "Value"
+     ],
+     "rule": 1.0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "Report heading",
+      "-",
+      "size",
+      "21"
+     ],
+     "rule": 0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "",
+      "-",
+      "color",
+      "#1C1C1C"
+     ],
+     "rule": 1.0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "Report subtitle",
+      "-",
+      "size",
+      "12"
+     ],
+     "rule": 0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "",
+      "-",
+      "color",
+      "#616161"
+     ],
+     "rule": 1.0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "Logo",
+      "-",
+      "size",
+      "48px"
+     ],
+     "rule": 1.0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "Divider line",
+      "-",
+      "border",
+      "1px"
+     ],
+     "rule": 0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "",
+      "-",
+      "border colour",
+      "#DBDBDB"
+     ],
+     "rule": 1.0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "Back button icon",
+      "-",
+      "size",
+      "32px"
+     ],
+     "rule": 0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "",
+      "-",
+      "name",
+      "\u201cLeft arrow\u201d"
+     ],
+     "rule": 0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "",
+      "-",
+      "color",
+      "#004B8B"
+     ],
+     "rule": 1.0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "Dropdown slicer",
+      "-",
+      "-",
+      "See Controls"
+     ],
+     "rule": 1.0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "Drill through button",
+      "-",
+      "-",
+      "See Buttons"
+     ],
+     "rule": 1.0,
+     "h": 40
+    }
+   ]
+  ],
+  [
+   "/Frame 9/Frame 7/Table 1/Table",
+   [
+    {
+     "cells": [
+      "Element",
+      "State",
+      "Property",
+      "Value"
+     ],
+     "rule": 1.0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "Header container",
+      "-",
+      "padding",
+      "20px"
+     ],
+     "rule": 0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "",
+      "-",
+      "color",
+      "#1C1C1C"
+     ],
+     "rule": 1.0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "Report subtitle",
+      "-",
+      "size",
+      "16px"
+     ],
+     "rule": 0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "",
+      "-",
+      "color",
+      "#616161"
+     ],
+     "rule": 1.0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "Logo",
+      "-",
+      "size",
+      "48px"
+     ],
+     "rule": 1.0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "Back button icon",
+      "-",
+      "size",
+      "32px"
+     ],
+     "rule": 0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "",
+      "-",
+      "name",
+      "\u201cLeft arrow\u201d"
+     ],
+     "rule": 0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "",
+      "-",
+      "color",
+      "#004B8B"
+     ],
+     "rule": 1.0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "Dropdown slicer",
+      "-",
+      "-",
+      "See Controls"
+     ],
+     "rule": 1.0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "Drill through button",
+      "-",
+      "-",
+      "See Buttons"
+     ],
+     "rule": 1.0,
+     "h": 40
+    }
+   ]
+  ]
+ ],
+ "filterbar": [
+  [
+   "/Frame 217/Frame 10/Frame 7/Table 1/Table",
+   [
+    {
+     "cells": [
+      "Element",
+      "State",
+      "Property",
+      "Value"
+     ],
+     "rule": 1.0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "Filter heading",
+      "-",
+      "font size",
+      "12"
+     ],
+     "rule": 0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "",
+      "-",
+      "font weight",
+      "Bold"
+     ],
+     "rule": 0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "",
+      "-",
+      "color",
+      "#1C1C1C"
+     ],
+     "rule": 1.0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "Controls",
+      "-",
+      "-",
+      "See Controls"
+     ],
+     "rule": 1.0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "Filter panel background",
+      "-",
+      "Background color",
+      "#fffff"
+     ],
+     "rule": 1.0,
+     "h": 40
+    }
+   ]
+  ]
+ ],
+ "table": [
+  [
+   "/Table example/Table",
+   [
+    {
+     "cells": [
+      "Category code",
+      "Category description",
+      "Year",
+      "Researcher name",
+      "Output code",
+      "Title",
+      "SJR Quartile",
+      "Link"
+     ],
+     "rule": 1.0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "C1",
+      "Journal: Refereed  Research Article (QUT)",
+      "2024",
+      "Prof Dale Kautzer",
+      "13694469047",
+      "Molar ratio induced crystal transformation from coordination complex to coordination polymers",
+      "Q1",
+      "Eprints"
+     ],
+     "rule": 1.0,
+     "h": 100
+    },
+    {
+     "cells": [
+      "C1",
+      "Journal: Refereed  Research Article (QUT)",
+      "2024",
+      "Prof Beverly Wilkinson",
+      "21149128355",
+      "Genomic analysis of intracranial and subcortical brain volumes yields polygenic scores accounting for variation across ancestries",
+      "Q1",
+      ""
+     ],
+     "rule": 1.0,
+     "h": 140
+    },
+    {
+     "cells": [
+      "C1",
+      "Journal: Refereed  Research Article (QUT)",
+      "2024",
+      "Prof Alma Jacobi",
+      "1650864833",
+      "'It's more than just a conversation about the heart'",
+      "Q1",
+      "Eprints"
+     ],
+     "rule": 1.0,
+     "h": 60
+    },
+    {
+     "cells": [
+      "C1",
+      "Journal: Refereed  Research Article (QUT)",
+      "2024",
+      "Prof Joan Lowe",
+      "845320056",
+      "Recruitment and baseline characteristics of young adults at risk of early-onset knee osteoarthritis after ACL reconstruction in the SUPER-Knee trial",
+      "Q1",
+      "Eprints"
+     ],
+     "rule": 1.0,
+     "h": 140
+    }
+   ]
+  ],
+  [
+   "/Frame 10/Frame 7/Table 1/Table",
+   [
+    {
+     "cells": [
+      "Element",
+      "State",
+      "Property",
+      "Value"
+     ],
+     "rule": 1.0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "Grid - options",
+      "-",
+      "Cell padding",
+      "10"
+     ],
+     "rule": 1.0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "Horizontal grid lines",
+      "-",
+      "width",
+      "1"
+     ],
+     "rule": 0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "",
+      "-",
+      "color",
+      "#DBDBDB"
+     ],
+     "rule": 1.0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "Values",
+      "-",
+      "font",
+      "Arial"
+     ],
+     "rule": 0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "",
+      "-",
+      "font colour",
+      "#1C1C1C"
+     ],
+     "rule": 0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "",
+      "-",
+      "font size",
+      "9"
+     ],
+     "rule": 0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "",
+      "-",
+      "background colour",
+      "#ffffff"
+     ],
+     "rule": 0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "",
+      "-",
+      "Alternate font colour",
+      "#1C1C1C"
+     ],
+     "rule": 0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "",
+      "-",
+      "Alternate background colour",
+      "#F5F5F5"
+     ],
+     "rule": 0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "",
+      "-",
+      "Text wrap",
+      "ON"
+     ],
+     "rule": 1.0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "Cell headers",
+      "-",
+      "font",
+      "Arial"
+     ],
+     "rule": 0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "",
+      "-",
+      "font weight",
+      "Bold"
+     ],
+     "rule": 0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "",
+      "-",
+      "font colour",
+      "#1C1C1C"
+     ],
+     "rule": 0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "",
+      "-",
+      "font size",
+      "9"
+     ],
+     "rule": 0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "",
+      "-",
+      "background colour",
+      "#ffffff"
+     ],
+     "rule": 0,
+     "h": 40
+    },
+    {
+     "cells": [
+      "",
+      "-",
+      "Text wrap",
+      "ON"
+     ],
+     "rule": 1.0,
+     "h": 40
+    }
+   ]
+  ]
+ ]
+}

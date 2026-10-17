@@ -30,6 +30,13 @@ const block = z.discriminatedUnion('type', [
   z.object({ type: z.literal('columns2'), images: z.array(image).default([]), framed: framed }),
   z.object({ type: z.literal('columns3'), images: z.array(image).default([]), framed: framed }),
   z.object({ type: z.literal('carousel'), images: z.array(image).default([]), framed: framed }),
+  z.object({
+    type: z.literal('embed'),
+    src: z.string(),
+    title: z.string().default('Embedded content'),
+    height: z.number().default(800),
+    width: z.enum(['inline', 'wide', 'full']).default('wide'),
+  }),
 ]);
 
 const work = defineCollection({
