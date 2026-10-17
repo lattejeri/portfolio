@@ -27,7 +27,8 @@
       "size": "1x1",
       "title": "WorkCover Queensland Atomic Design System",
       "text": "WorkCover Queensland Atomic Design System",
-      "image": "/portfolio/media/wcq thumb.svg"
+      "image": "/portfolio/media/wcq thumb.svg",
+      "link": "/portfolio/work/enterprise-design-system/"
     }
   ]
 }
