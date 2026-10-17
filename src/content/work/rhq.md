@@ -48,4 +48,13 @@ blocks:
   - type: imageInline
     src: /portfolio/media/rhq3.png
     framed: false
+  - type: text
+    body: <h3>The finished result</h3><p></p>
+  - type: carousel
+    images:
+      - src: /portfolio/media/RHQ-Chart view.png
+      - src: /portfolio/media/RHQ-Chart view 2.png
+      - src: /portfolio/media/RHQ-Chart view 3.png
+      - src: /portfolio/media/RHQ-Drill down.png
+    framed: true
 ---
