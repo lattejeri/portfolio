@@ -30,6 +30,9 @@ blocks:
       a <strong>Head Contractor Estimator</strong> vetting subcontractors for a
       tender list, and a <strong>Commercial Facility Manager</strong> looking
       for recurring statutory compliance.</p>"
+  - type: imageInline
+    src: /portfolio/media/energize-personas.svg
+    framed: false
   - type: text
     body: "<h4>Unpack the real business model</h4><p>Talking through how the
       business actually wins and delivers work revealed a massive gap between
@@ -67,6 +70,9 @@ blocks:
       end of every narrative beat, culminating in a structured <strong>Request a
       Quote / Tender</strong> flow that pre-selects work scopes and supports
       drawing uploads.</p></td></tr></tbody></table><p></p>"
+  - type: imageInline
+    src: /portfolio/media/energize-funnel.svg
+    framed: false
   - type: text
     body: <h4>Prototype the information architecture</h4><p>Rather than jumping
       straight into high-fidelity visuals or lorem ipsum layouts, I built an
@@ -90,11 +96,14 @@ blocks:
       white (<code>#FFF9F7</code>), and high-vis safety orange
       (<code>#FD5404</code>).</p></li></ul><p></p>
   - type: text
-    body: <h4>Engineer a zero-bloat WordPress block theme that clients can easily
-      pick up and use</h4><p>A great design system fails if the handover forces
-      the client into a clunky page builder—or worse, lets a stray click ruin
-      the layout. Instead of reaching for Elementor or Divi, I engineered a
-      custom WordPress Full Site Editing (FSE) Gutenberg Block Theme</p>
+    body: <h4>Build a simple WordPress block theme that clients can easily pick up
+      and use</h4><p>A great design system fails if the handover forces the
+      client into a clunky page builder—or worse, lets a stray click ruin the
+      layout. Instead of reaching for Elementor or Divi, I engineered a custom
+      WordPress Full Site Editing (FSE) Gutenberg Block Theme.</p>
+  - type: imageInline
+    src: /portfolio/media/energize-handover.svg
+    framed: false
   - type: text
     body: <h3>Results &amp; deliverables</h3><ul><li><p><strong>Cohesive B2B brand
       ecosystem:</strong> Refreshed brand identity, corporate email signatures,
