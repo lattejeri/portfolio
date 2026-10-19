@@ -2,10 +2,6 @@
 title: Energize Electrical Safety
 draft: false
 blocks:
-  - type: embed
-    src: https://lattejeri.github.io/energize-prototype/index.html
-    title: Energize prototype
-    height: 800
   - type: text
     body: <h2>Turning a dormant 2018 brochure site into something fitting for
       Energize's next growth step</h2><p>On the ground, Energize Industries is a
@@ -80,6 +76,10 @@ blocks:
       in-browser copy editor and a master copy deck. This let us stress-test the
       narrative flow, sentence-case editorial standards, and B2B messaging
       across all 9 page templates before locking the visual design.</p>
+  - type: embed
+    src: https://lattejeri.github.io/energize-prototype/index.html
+    title: Energize prototype
+    height: 800
   - type: text
     body: <h4>Translate electrical trade craft into a sharp schematic visual
       language</h4><p>Moving from prototype to Figma, we steered away from
@@ -95,6 +95,18 @@ blocks:
       palette:</strong> Deep carbon black (<code>#060505</code>), warm paper
       white (<code>#FFF9F7</code>), and high-vis safety orange
       (<code>#FD5404</code>).</p></li></ul><p></p>
+  - type: showcase
+    desktop: /portfolio/media/home-1200@2x-full.png
+    mobile: /portfolio/media/home-375@2x-full.png
+    height: 640
+  - type: showcase
+    desktop: /portfolio/media/services-1200@2x-full.png
+    mobile: /portfolio/media/services-375@2x-full.png
+    height: 640
+  - type: showcase
+    desktop: /portfolio/media/why-energize-1200@2x-full.webp
+    mobile: /portfolio/media/why-energize-375@2x-full.webp
+    height: 640
   - type: text
     body: <h4>Build a simple WordPress block theme that clients can easily pick up
       and use</h4><p>A great design system fails if the handover forces the
