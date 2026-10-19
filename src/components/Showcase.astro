@@ -1,0 +1,86 @@
+---
+interface Props {
+  desktop: string;
+  mobile: string;
+  alt: string;
+  height: number;
+}
+
+const { desktop, mobile, alt, height } = Astro.props;
+---
+
+<div class="showcase" style={`--showcase-height: ${height}px`}>
+  <img class="showcase-cue" src={`${import.meta.env.BASE_URL.replace(/\/$/, "")}/media/im-scrollable.svg`} alt="I'm scrollable" width="172" height="73" />
+  <div class="pane desktop" tabindex="0" aria-label="Desktop screenshot, scrollable">
+    <img src={desktop} alt={alt ? `${alt} (desktop)` : ''} loading="lazy" />
+  </div>
+  <div class="pane mobile" tabindex="0" aria-label="Mobile screenshot, scrollable">
+    <img src={mobile} alt={alt ? `${alt} (mobile)` : ''} loading="lazy" />
+  </div>
+</div>
+
+<style>
+  /* Desktop and mobile full-page screenshots side by side, each scrolling inside a capped-height pane. */
+  .showcase {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 32px;
+    align-items: start;
+    max-width: 1200px;
+    margin-inline: auto;
+  }
+  /* "I'm scrollable" cue, left-aligned above the panes (matches the embed's "Play with me"). */
+  .showcase-cue {
+    grid-column: 1 / -1;
+    display: block;
+    margin-bottom: -12px; /* 32px grid gap - 12 = 20px, same as the embed cue */
+  }
+  .pane {
+    height: min(var(--showcase-height), 85vh);
+    overflow-y: auto;
+    box-sizing: border-box;
+    border: 1px solid #e6e1da;
+    border-radius: 8px;
+    background: #fff;
+    scrollbar-width: thin;
+  }
+  .pane:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+  }
+  .pane img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  /* Phones: mobile screenshot only, short enough that the page is always reachable around it. */
+  @media (max-width: 768px) {
+    .showcase { grid-template-columns: minmax(0, 375px); justify-content: center; }
+    .desktop { display: none; }
+    .pane { height: 70vh; }
+  }
+</style>
+
+<script>
+  // Keep both panes at the same relative scroll position. Only the pane the reader is
+  // interacting with drives the other, so the two never feed back into each other.
+  document.querySelectorAll<HTMLElement>('.showcase').forEach((showcase) => {
+    const panes = [...showcase.querySelectorAll<HTMLElement>('.pane')];
+    let driver: HTMLElement | null = null;
+
+    for (const pane of panes) {
+      for (const event of ['pointerenter', 'touchstart', 'wheel', 'focus']) {
+        pane.addEventListener(event, () => { driver = pane; }, { passive: true });
+      }
+      pane.addEventListener('scroll', () => {
+        if (pane !== driver) return;
+        const range = pane.scrollHeight - pane.clientHeight;
+        const progress = range > 0 ? pane.scrollTop / range : 0;
+        for (const other of panes) {
+          if (other !== pane) other.scrollTop = progress * (other.scrollHeight - other.clientHeight);
+        }
+      }, { passive: true });
+    }
+  });
+</script>

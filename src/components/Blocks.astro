@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import Carousel from './Carousel.astro';
+import Showcase from './Showcase.astro';
 
 interface Props {
   blocks: CollectionEntry<'work'>['data']['blocks'];
@@ -42,6 +43,12 @@ const { blocks } = Astro.props;
       return (
         <div class="block">
           <Carousel images={block.images} framed={block.framed} />
+        </div>
+      );
+    case 'showcase':
+      return (
+        <div class="block showcase-block">
+          <Showcase desktop={block.desktop} mobile={block.mobile} alt={block.alt} height={block.height} />
         </div>
       );
     case 'embed':
@@ -115,7 +122,7 @@ const { blocks } = Astro.props;
   figcaption.caption { margin-top: 12px; }
 
   /* Embedded pages (e.g. the Research HQ style guide): up to 1200px, centred, so they can break the text spine. */
-  .embed { padding-inline: 32px; }
+  .embed, .showcase-block { padding-inline: 32px; }
   .embed-inner {
     max-width: 1200px;
     margin-inline: auto;
@@ -144,7 +151,7 @@ const { blocks } = Astro.props;
   .columns3 { grid-template-columns: repeat(3, 1fr); }
 
   @media (max-width: 640px) {
-    .bleed, .wide, .embed { padding-inline: 16px; }
+    .bleed, .wide, .embed, .showcase-block { padding-inline: 16px; }
     .cols { grid-template-columns: 1fr; gap: 16px; }
   }
 </style>

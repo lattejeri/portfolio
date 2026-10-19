@@ -109,6 +109,13 @@ content:
                   - { name: src, label: Image, type: image, required: true }
                   - { name: alt, label: Image description (alt text), type: string }
               - { name: framed, label: Rounded corners, type: boolean, default: false }
+          - name: showcase
+            label: Showcase (desktop + mobile screenshots, scrolling)
+            fields:
+              - { name: desktop, label: Desktop full-page screenshot, type: image, required: true }
+              - { name: mobile, label: Mobile full-page screenshot, type: image, required: true, description: "Phones only see this one." }
+              - { name: alt, label: Image description (alt text), type: string }
+              - { name: height, label: Height (px), type: number, default: 640 }
           - name: embed
             label: Embed (web page in a frame, up to 1200 wide)
             fields:
