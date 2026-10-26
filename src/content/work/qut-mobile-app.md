@@ -57,6 +57,12 @@ blocks:
       roadmap.</p></li><li><p>Conducted individual 1:1 check-ins with permanent
       and contingent team members during the workforce wind-down, preserving
       team culture.</p></li></ul><p></p>
+  - type: imageInline
+    src: /portfolio/media/operating-model.svg
+    framed: false
+  - type: imageInline
+    src: /portfolio/media/feature-prioritisation-1.svg
+    framed: false
   - type: text
     body: <h3>Results &amp; Business Impact</h3><ul><li><p><strong>Safely landed the
       $1M project:</strong> Delivered the final capital release on schedule
@@ -70,12 +76,6 @@ blocks:
       resulting in the creation of an enterprise-wide UX Research
       Lab.</p></li></ul><p></p>
   - type: imageInline
-    src: /portfolio/media/operating-model.svg
-    framed: false
-  - type: imageInline
     src: /portfolio/media/mobile-app-one-pager.svg
-    framed: false
-  - type: imageInline
-    src: /portfolio/media/feature-prioritisation-1.svg
     framed: false
 ---
