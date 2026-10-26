@@ -69,4 +69,7 @@ blocks:
       that pre-build student testing is viable, affordable, and desirable,
       resulting in the creation of an enterprise-wide UX Research
       Lab.</p></li></ul><p></p>
+  - type: imageInline
+    src: /portfolio/media/operating-model.svg
+    framed: false
 ---
