@@ -72,4 +72,7 @@ blocks:
   - type: imageInline
     src: /portfolio/media/operating-model.svg
     framed: false
+  - type: imageInline
+    src: /portfolio/media/mobile-app-one-pager.svg
+    framed: false
 ---
