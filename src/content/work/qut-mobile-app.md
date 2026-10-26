@@ -75,4 +75,7 @@ blocks:
   - type: imageInline
     src: /portfolio/media/mobile-app-one-pager.svg
     framed: false
+  - type: imageInline
+    src: /portfolio/media/feature-prioritisation-1.svg
+    framed: false
 ---
