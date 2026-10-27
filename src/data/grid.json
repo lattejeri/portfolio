@@ -4,7 +4,8 @@
       "kind": "work",
       "size": "2x2",
       "title": "QUT Mobile App",
-      "image": "/portfolio/media/MOBILE APP THUMB.png"
+      "image": "/portfolio/media/MOBILE APP THUMB.png",
+      "link": "/portfolio/work/qut-mobile-app/"
     },
     {
       "kind": "text",
