@@ -10,6 +10,9 @@ blocks:
       strategic challenge began: establishing a permanent product operating
       model that preserved student-centric design, and cross-departmental
       alignment long after capital funding ceased.</p>'
+  - type: imageInline
+    src: /portfolio/media/Frame 3343.png
+    framed: false
   - type: text
     body: "<h3>How might we maintain customer centricity through product ownership,
       long after a capital project is wrapped up?</h3><p>Capital projects often
@@ -45,6 +48,9 @@ blocks:
   - type: imageWide
     src: /portfolio/media/QUT kit expanded mosaic.png
     framed: true
+  - type: imageInline
+    src: /portfolio/media/Frame 3345.png
+    framed: false
   - type: text
     body: <h4>Sustaining HCD &amp; student engagement</h4><ul><li><p>Embedded
       student discovery sessions directly into delivery blocks, normalizing user
@@ -83,11 +89,5 @@ blocks:
       Lab.</p></li></ul><p></p>
   - type: imageInline
     src: /portfolio/media/mobile-app-one-pager.svg
-    framed: false
-  - type: imageInline
-    src: /portfolio/media/Frame 3345.png
-    framed: false
-  - type: imageInline
-    src: /portfolio/media/Frame 3343.png
     framed: false
 ---
