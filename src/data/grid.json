@@ -1,6 +1,12 @@
 {
   "items": [
     {
+      "kind": "work",
+      "size": "2x2",
+      "title": "QUT Mobile App",
+      "image": "/portfolio/media/MOBILE APP THUMB.png"
+    },
+    {
       "kind": "text",
       "size": "2x1",
       "title": "eResearch Data Management Planner",
