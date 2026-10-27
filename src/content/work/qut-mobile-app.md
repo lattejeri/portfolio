@@ -30,6 +30,9 @@ blocks:
   - type: imageInline
     src: /portfolio/media/triangle.svg
     framed: false
+  - type: imageInline
+    src: /portfolio/media/Frame 3344.png
+    framed: false
   - type: text
     body: <h4>Internal DesignOps &amp; workflow systems</h4><ul><li><p>Shifted
       component libraries, UI kits, and interaction guidelines out of desktop
@@ -39,6 +42,9 @@ blocks:
       designers.</p></li><li><p>Maintained a single source of truth for design
       patterns, ensuring visual and interaction consistency across continuous
       release cycles.</p></li></ul><p></p>
+  - type: imageWide
+    src: /portfolio/media/QUT kit expanded mosaic.png
+    framed: true
   - type: text
     body: <h4>Sustaining HCD &amp; student engagement</h4><ul><li><p>Embedded
       student discovery sessions directly into delivery blocks, normalizing user
@@ -77,5 +83,11 @@ blocks:
       Lab.</p></li></ul><p></p>
   - type: imageInline
     src: /portfolio/media/mobile-app-one-pager.svg
+    framed: false
+  - type: imageInline
+    src: /portfolio/media/Frame 3345.png
+    framed: false
+  - type: imageInline
+    src: /portfolio/media/Frame 3343.png
     framed: false
 ---
