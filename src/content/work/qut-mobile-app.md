@@ -11,7 +11,7 @@ blocks:
       model that preserved student-centric design, and cross-departmental
       alignment long after capital funding ceased.</p>'
   - type: imageInline
-    src: /portfolio/media/Frame 3343.png
+    src: /portfolio/media/Frame 3343-1.png
     framed: false
   - type: text
     body: "<h3>How might we maintain customer centricity through product ownership,
