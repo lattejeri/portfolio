@@ -31,6 +31,12 @@
     },
     {
       "kind": "work",
+      "size": "2x1",
+      "title": "How to build a customer research capability",
+      "image": "/portfolio/media/04-recruitment-poster-thumb (2).svg"
+    },
+    {
+      "kind": "work",
       "size": "1x1",
       "title": "WorkCover Queensland Atomic Design System",
       "text": "WorkCover Queensland Atomic Design System",
