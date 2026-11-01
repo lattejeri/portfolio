@@ -26,10 +26,10 @@ blocks:
       required building an operational ecosystem rather than executing a single
       handoff task.</p>"
   - type: text
-    body: <h3>The DesignOps, HCD and stakeholder management triangle</h3><p>Rather
-      than treating handover as an administrative checklist, product ownership
-      was structured around a three-way relationship between DesignOps, student
-      HCD practices, and executive stakeholder alignment.</p>
+    body: <h3>DesignOps, HCD and stakeholder management</h3><p>Rather than treating
+      handover as an administrative checklist, product ownership was structured
+      around a three-way relationship between DesignOps, student HCD practices,
+      and executive stakeholder alignment.</p>
   - type: imageInline
     src: /portfolio/media/triangle.svg
     framed: false
