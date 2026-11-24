@@ -1,6 +1,8 @@
 ---
 import { Font } from 'astro:assets';
 import site from '../data/site.json';
+import Gate from '../components/Gate.astro';
+import gate from '../data/gate.json';
 import '../styles/palette.css';
 
 interface Props {
@@ -15,7 +17,6 @@ const pageTitle = title ? `${title} · ${site.title}` : site.title;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 const nav = [
-  { label: 'Work', href: `${base}/work/` },
   { label: 'Bio', href: `${base}/bio/` },
   { label: 'LinkedIn', href: site.linkedin, external: true },
 ];
@@ -30,6 +31,13 @@ const isCurrent = (href: string) => Astro.url.pathname.startsWith(href);
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     <title>{pageTitle}</title>
+    <meta name="robots" content="noindex" />
+    {/* Runs before paint so locked pages never flash their content. */}
+    <script is:inline define:vars={{ hash: gate.passwordHash }}>
+      try {
+        if (localStorage.getItem('portfolio-unlock') !== hash) document.documentElement.classList.add('locked');
+      } catch { document.documentElement.classList.add('locked'); }
+    </script>
     <Font cssVariable="--font-inter-tight" preload />
     <Font cssVariable="--font-redaction" preload />
     <Font cssVariable="--font-redaction-10" />
@@ -40,6 +48,7 @@ const isCurrent = (href: string) => Astro.url.pathname.startsWith(href);
     <Font cssVariable="--font-redaction-100" preload />
   </head>
   <body>
+    <Gate />
     <header class="wrap site-header">
       <a class="logo" href={`${base}/`} aria-label={`${site.title} — home`}>Jeremy</a>
       <nav aria-label="Main">

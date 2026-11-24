@@ -1,0 +1,85 @@
+---
+// Client-side password gate. GitHub Pages can't do real auth, so this only
+// hides the page — the HTML is still public to anyone who views source.
+// The head script in Base.astro adds html.locked before first paint.
+import gate from '../data/gate.json';
+---
+
+<div class="gate" role="dialog" aria-modal="true" aria-labelledby="gate-title">
+  <form class="gate-form" data-hash={gate.passwordHash}>
+    <p class="gate-logo" aria-hidden="true">Jeremy</p>
+    <h1 id="gate-title" class="h3">This portfolio is password protected</h1>
+    <label class="visually-hidden" for="gate-input">Password</label>
+    <div class="gate-row">
+      <input id="gate-input" type="password" placeholder="Password" autocomplete="current-password" required />
+      <button type="submit">Enter</button>
+    </div>
+    <p class="gate-error caption" role="alert" hidden>That's not it — try again.</p>
+  </form>
+</div>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>('.gate-form')!;
+  const input = form.querySelector('input')!;
+  const error = form.querySelector<HTMLElement>('.gate-error')!;
+
+  const sha256 = async (text: string) => {
+    const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
+    return [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, '0')).join('');
+  };
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const hash = await sha256(input.value);
+    if (hash !== form.dataset.hash) {
+      error.hidden = false;
+      input.select();
+      return;
+    }
+    try { localStorage.setItem('portfolio-unlock', hash); } catch {}
+    document.documentElement.classList.remove('locked');
+  });
+
+  if (document.documentElement.classList.contains('locked')) input.focus();
+</script>
+
+<style>
+  .gate { display: none; }
+  /* While locked, show only the gate. */
+  :global(html.locked) .gate {
+    display: grid;
+    place-items: center;
+    min-height: calc(100vh - 4rem);
+    padding-inline: 1rem;
+  }
+  :global(html.locked body > :not(.gate)) { display: none; }
+
+  .gate-form { width: 100%; max-width: 420px; }
+  .gate-logo {
+    margin-bottom: 1.5rem;
+    font-family: var(--font-redaction-100);
+    font-size: 24px;
+    line-height: 1;
+  }
+  .gate-row { display: flex; gap: 8px; }
+  input, button {
+    font: var(--type-p2);
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid var(--viz-structure-line);
+  }
+  input {
+    flex: 1;
+    min-width: 0;
+    background: var(--bg);
+    color: var(--fg);
+  }
+  button {
+    background: var(--fg);
+    color: var(--bg);
+    border-color: var(--fg);
+    font-weight: 500;
+    cursor: pointer;
+  }
+  .gate-error { margin: 12px 0 0; color: var(--viz-focus-deep); }
+</style>
